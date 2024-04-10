@@ -2,7 +2,9 @@ GLOBAL_LIST_EMPTY(all_obelisk)
 
 /obj/machinery/power/torchbearer
 	name = "Bonfire torchbearer"
-	desc = "The Torchbearer is an advanced piece of machinery that protects the bodies and calms the minds of the Hearthcore-implanted nearby."
+	desc = "The Torchbearer is a machine design made by custodian's steelmasonry that uses radiance for the protection of the body and mind. \
+	It activates with the radiance of nearby hearthcore-implanted knights to properly enforce the 'The Purifying Bonfire' dogma. \
+	Beyond that, it collects information of possible enemies and delivers the data to the Vanguard Branch after filtering information for privacy. An anti-insurgency effort."
 	icon = 'icons/obj/custodian_structures.dmi'
 	icon_state = "torchbearer"
 
@@ -163,6 +165,3 @@ GLOBAL_LIST_EMPTY(all_obelisk)
 
 /obj/machinery/power/torchbearer/update_icon()
 	icon_state = "torchbearer[active?"_activate":""]"
-
-//Experimental area to make the 'stand' boys. Still need a whole lot of help, but as far I see it, it's pretty much turning the player into a different, limited torchbearer that deals more damage, but only around the player, and the damage ATTACKS EVERYTHING around the user. That's all 
-

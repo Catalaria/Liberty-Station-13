@@ -26,7 +26,7 @@
 		list(QUALITY_ADHESIVE, 10, "time" = 20),
 	)
 
-/*/datum/craft_recipe/terra/melee//deleted recipes due to balance
+/*/datum/craft_recipe/terra/melee//deleted recipes due to balance //Update: These may come back.
 	name = "melee plating"
 	result = /obj/item/tool_upgrade/armor/melee
 	icon_state = "clothing"
@@ -63,7 +63,7 @@
 	result = /obj/item/tool_upgrade/armor/energy
 	icon_state = "clothing"
 	steps = list(
-		list(CRAFT_MATERIAL, 2, MATERIAL_TITANIUMRTC, "time" = 30),
+		list(CRAFT_MATERIAL, 2, MATERIAL_NIOBIUM, "time" = 30),
 		list(CRAFT_MATERIAL, 5, MATERIAL_PLASTIC , "time" = 30),
 		list(QUALITY_WELDING, 35, "time" = 60),
 		list(QUALITY_CUTTING, 30, "time" = 180),
@@ -90,6 +90,66 @@
 		list(QUALITY_SAWING, 30, "time" = 60)
 	)
 */
+
+//Interfaction equipments for higher quality products. Unironically something that must be invested on.
+
+/datum/craft_recipe/terra/bullet/custodianmelee
+	name = "Carbon Fiber Melee Plating"
+	result = /obj/item/tool_upgrade/custodian/armor/melee
+	steps = list(
+		list(CRAFT_MATERIAL, 20, MATERIAL_INDSTEEL, "time" = 60),
+		list(CRAFT_MATERIAL, 30, MATERIAL_CARBON_FIBER, "time" = 60),
+		list(QUALITY_WELDING, 35, "time" = 60),
+		list(QUALITY_CUTTING, 30, "time" = 180),
+		list(QUALITY_HAMMERING, 30, "time" = 180),
+		list(QUALITY_SCREW_DRIVING, 35, "time" = 90),
+		list(QUALITY_WELDING, 35, "time" = 60),
+		list(/obj/item/tool_upgrade/reinforcement/rubbermesh, 1),
+		list(QUALITY_BOLT_TURNING, 30, "time" = 120),
+		list(QUALITY_HAMMERING, 30, "time" = 180),
+		list(QUALITY_SCREW_DRIVING, 35, "time" = 90),
+		list(QUALITY_SAWING, 30, "time" = 60)
+	)
+
+/datum/craft_recipe/terra/bullet/custodianbullet
+	name = "Silk Polymer Bullet Plating"
+	result = /obj/item/tool_upgrade/custodian/armor/bullet
+	steps = list(
+		list(CRAFT_MATERIAL, 10, MATERIAL_INDSTEEL, "time" = 60),
+		list(CRAFT_MATERIAL, 10, MATERIAL_PLASTIC , "time" = 30),
+		list(CRAFT_MATERIAL, 30, MATERIAL_BIO_SILK, "time" = 60),
+		list(QUALITY_WELDING, 35, "time" = 60),
+		list(QUALITY_CUTTING, 30, "time" = 180),
+		list(QUALITY_HAMMERING, 30, "time" = 180),
+		list(QUALITY_SCREW_DRIVING, 35, "time" = 90),
+		list(QUALITY_WELDING, 35, "time" = 60),
+		list(/obj/item/tool_upgrade/reinforcement/rubbermesh, 1),
+		list(QUALITY_BOLT_TURNING, 30, "time" = 120),
+		list(QUALITY_HAMMERING, 30, "time" = 180),
+		list(QUALITY_SCREW_DRIVING, 35, "time" = 90),
+		list(QUALITY_SAWING, 30, "time" = 60)
+	)
+
+/datum/craft_recipe/terra/bullet/custodianenergy
+	name = "Dark Silver Energy Plating"
+	result = /obj/item/tool_upgrade/custodian/armor/energy
+	steps = list(
+		list(CRAFT_MATERIAL, 10, MATERIAL_INDSTEEL, "time" = 60),
+		list(CRAFT_MATERIAL, 20, MATERIAL_CARBON_FIBER , "time" = 30),
+		list(CRAFT_MATERIAL, 20, MATERIAL_BIO_SILK, "time" = 30),
+		list(CRAFT_MATERIAL, 5, MATERIAL_SILVER, "time" = 20),
+		list(QUALITY_WELDING, 35, "time" = 60),
+		list(QUALITY_CUTTING, 30, "time" = 180),
+		list(QUALITY_HAMMERING, 30, "time" = 180),
+		list(QUALITY_SCREW_DRIVING, 35, "time" = 90),
+		list(QUALITY_WELDING, 35, "time" = 60),
+		list(/obj/item/tool_upgrade/reinforcement/rubbermesh, 1),
+		list(QUALITY_BOLT_TURNING, 30, "time" = 120),
+		list(QUALITY_HAMMERING, 30, "time" = 180),
+		list(QUALITY_SCREW_DRIVING, 35, "time" = 90),
+		list(QUALITY_SAWING, 30, "time" = 60)
+	)
+
 //Material Craft ------------------
 
 /datum/craft_recipe/terra/plasma_glass

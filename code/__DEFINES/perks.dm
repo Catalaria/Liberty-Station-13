@@ -74,6 +74,10 @@
 #define PERK_PHOENIX /datum/perk/job/phoenix_rekindlement
 #define PERK_INFLUX /datum/perk/job/influx
 
+//This does NOT work
+/*
+#define PERK_STONEMASON /datum/perk/job/stonemason
+*/
 
 // Medical
 #define PERK_CHEMIST /datum/perk/job/chemist

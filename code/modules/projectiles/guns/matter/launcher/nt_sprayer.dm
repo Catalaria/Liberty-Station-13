@@ -16,6 +16,8 @@
 		list(mode_name="stronger", mode_desc="Small long lasting slipping bolt", projectile_type=/obj/item/arrow/slipping/bigger, fire_sound='sound/weapons/Genhit.ogg', fire_delay=25, icon="toxin", projectile_cost = 1.5),
 	)
 	serial_type = "Bonfire"
+	knightly_check = TRUE
+
 
 /obj/item/arrow
 	var/recoil = 2  // Light recoil, it's just some cleaning stuff
@@ -62,6 +64,7 @@
 	matter_type = MATERIAL_WOOD
 	serial_type = "PI"
 	projectile_type = /obj/item/arrow/cleansing
+	knightly_check = TRUE
 
 	max_stored_matter = 3 //Annoying to use do to low ammo
 

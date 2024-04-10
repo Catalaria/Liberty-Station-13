@@ -13,6 +13,7 @@
 	projectile_type = /obj/item/projectile/plasma/lastertag/blue
 	var/required_vest
 	serial_type = "TOY-CO"
+	knightly_check = TRUE
 
 /obj/item/gun/energy/lasertag/special_check(var/mob/living/carbon/human/M)
 	if(ishuman(M))

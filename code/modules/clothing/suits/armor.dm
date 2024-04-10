@@ -315,25 +315,25 @@
 	modifiable = FALSE
 
 /obj/item/clothing/suit/armor/custodian/oathbound
-	name = "dark-silver oathbound armor"
+	name = "Warhound \"Oathbound\" armor"
 	desc = "Artwork of purity and might, protective and light to the feet, the plate armors of the Oathbounds shine ever so slightly and protect against the flames."
 	icon_state = "oathbound"
 	item_state = "oathbound"
 
 /obj/item/clothing/suit/armor/custodian/forgemaster
-	name = "dark-silver forgemaster armor"
+	name = "Steelmason \"Forgemaster\" armor"
 	desc = "The hammer and fist of the Custodians, the Forgemasters are extremely important personnel - and as such are provided an armor of their own to tame the fire."
 	icon_state = "forgemaster"
 	item_state = "forgemaster"
 
 /obj/item/clothing/suit/armor/custodian/enkindled
-	name = "dark-silver enkindled armor"
+	name = "Plague Doctor \"Enkindled\" armor"
 	desc = "The fire-resistant armor of the blood transmuters and alchemists of the Custodians, made in the image of forgotten legends of deranged plague-healers."
 	icon_state = "enkindled"
 	item_state = "enkindled"
 
 /obj/item/clothing/suit/armor/custodian/oathpledge
-	name = "dark-silver oathpledge armor"
+	name = "Innerfire \"Oathpledge\" armor"
 	desc = "The formidable armor of the leaders and guides of the Custodians. A sturdy and fire-resistant design."
 	icon_state = "oathpledge"
 	item_state = "oathpledge"

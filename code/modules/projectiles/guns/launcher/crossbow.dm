@@ -67,6 +67,7 @@
 	var/draw_time = 10							// How long it takes to increase the draw on the bow by one "tension"
 	serial_type = null //it's a handmade crossbow who's putting serials on it
 	var/superheat_cost = 250
+	knightly_check = TRUE
 
 /obj/item/gun/projectile/crossbow/consume_next_projectile(mob/user)
 	if(tension <= 0)
@@ -225,6 +226,7 @@
 	var/boltcost = 5
 	var/obj/item/ammo_casing/flashforge_type = /obj/item/ammo_casing/rod_bolt/rcd
 	superheat_type = /obj/item/projectile/bullet/reusable/rod_bolt/rcd/superhot
+	knightly_check = TRUE
 
 /obj/item/gun/projectile/crossbow/RCD/proc/genBolt(var/mob/user)
 	if(stored_matter >= boltcost && !chambered)

@@ -4,9 +4,8 @@ var/global/obj/machinery/power/eotp/eotp
 
 /obj/machinery/power/eotp
 	name = "Embers of Theoretical Philosophy"
-	desc = "A specialized gatepyre machine designed to supply the surface stronghold with Custodian disks and equipment from either the lower Custodian Stronghold \
-	or Elohopean Outposts - from other orders - by transporting materials, an mutual exchange between orders, allowing their operations to run in other portions of the universe. \
-	The EOTP provides improvement to the hearthcore and monitor areas protected by torchbearer for potential threats to the colony, warning Custodians ahead of time."
+	desc = "A specialized gatepyre machine designed to transport Custodian disks and equipment between strongholds, facilitating mutual exchange between orders and allowing operations across the universe. \
+	The EOTP enhances hearthcore and uses Torchbearers to monitors areas for potential threats, alerting Custodians in advance."
 	icon = 'icons/obj/eotp.dmi'
 	icon_state = "eotp"
 

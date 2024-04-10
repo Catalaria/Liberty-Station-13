@@ -343,30 +343,28 @@
 
 /obj/item/clothing/head/helmet/custodian/oathbound
 	name = "Warhound \"Oathbound\" helmet"
-	desc = "A forget helmet made for the frontline units of the custodians, the Oathbounds. The materials and design ensures protection against weapons and fire. \
-	The helmet design has the similarity to Custodian's giant borzoi warhounds to not only intimidate the enemies with the monstrous appearance while portraying loyalty, \
-	but to take advantage of the hounskull-style of the visor so damage can glance to the sides and lose major portion of the impact, very important against fast moving projectiles."
+	desc = "A fireproof helmet designed for frontline Custodian units, the Oathbounds. The design resembles the Elohopean borzoi warhounds to instills fear and represent their loyalty. \
+	and it merges the styles of medieval helmets, such as the european Hounskull and japanese Kabuto."
 	icon_state = "oathbound_helmet"
 	item_state = "oathbound_helmet"
 
 /obj/item/clothing/head/helmet/custodian/enkindled
 	name = "Plague Doctor \"Enkindled\" helmet"
-	desc = "A helmet design tooled after ancient healing legends, made for the Enkindled to keep fire at bay. The helmet design is unique, as it keeps the protective metal inside, \
-	while the silk and foam remains outside. This is done to focus less on reflecting damage, but absorbing it like a trampoline so less impact reaches the neck and skull. \
-	The helmet is based on Plague Doctors during medieval age so people can easily identify to who ask for help in the battlefield. The same design can be found on CSO's helmet."
+	desc = "A helm fashioned from ancient healing lore, crafted for the Enkindled to withstand flames. This design choice prioritizes absorbing damage rather than deflecting it, reducing impact on the neck and skull like a trampoline. \
+	Inspired by medieval Plague Doctors, it ensures easy identification on the battlefield. Similar designs are used by CSO operatives."
 	icon_state = "enkindled_helmet"
 	item_state = "enkindled_helmet"
 
 /obj/item/clothing/head/helmet/custodian/forgemaster
 	name = "Steelmason \"Forgemaster\" helmet"
-	desc = "A helmet designed to keep the user safe from hot sparks and searing heat, made for the Forgemasters, from Forgemasters. The design focuses on helping in identification, \
-	as the upper portion of the helmet looks like an armored hard hat with nasal and cheek protection. The nasal layer is made of pure radiance to better improve the user's sight."
+	desc = "A specialized helmet crafted by Forgemasters for Forgemasters, aimed at protecting wearers from hot sparks and intense heat. The design prioritizes easy identification, \
+	featuring an armored hard hat style with nasal and cheek protection. The nasal layer is constructed from pure radiance to enhance visibility for the wearer."
 	icon_state = "forgemaster_helmet"
 	item_state = "forgemaster_helmet"
 
 /obj/item/clothing/head/helmet/custodian/oathpledge
-	name = "oathpledge helmet"
-	desc = "A helmet for the leaders and guides of the Custodians, this design is extremely resistant to damage."
+	name = "Innerfire \"Oathpledge\" helmet"
+	desc = "A helmet for the leaders and guides of the Custodians, this design is extremely resistant to damage. It is essentially an improved version of the Warhound helmet with inner radiance."
 	icon_state = "oathpledge_helmet"
 	item_state = "oathpledge_helmet"
 	armor_list = list(melee = 50, bullet = 50, energy = 50, bomb = 50, bio = 100, rad = 0)

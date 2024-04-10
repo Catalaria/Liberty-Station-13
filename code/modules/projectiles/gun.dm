@@ -61,6 +61,7 @@
 	var/active_zoom_factor = 1 //Index of currently selected zoom factor
 	var/list/zoom_factors = list()//How much to scope in when using weapon,
 	var/list/initial_zoom_factors = list()
+	var/knightly_check = FALSE //If the gun is allowed to be used by Hearthcore users.
 /*
 
 NOTE: For the sake of standardizing guns and extra vision range, here's a general guideline for zooming factor.
@@ -333,13 +334,18 @@ For the sake of consistency, I suggest always rounding up on even values when ap
 			handle_click_empty(user)
 		return FALSE
 
+	if((M.get_core_implant(/obj/item/implant/core_implant/hearthcore)) && !knightly_check) //Oath procedures, since we can never have good things.
+		to_chat(user, SPAN_DANGER("Your hearthcore bellows. The radiance quickly coats \the [src]'s trigger before you shoot. The radiance itself doth seemeth disappointed and ashamed of thee."))
+		handle_click_empty(user)
+		return FALSE
+
 	if(rigged)
 		var/obj/P = consume_next_projectile()
 		if(P)
 			if(process_projectile(P, user, user, BP_HEAD))
 				handle_post_fire(user, user)
 				user.visible_message(
-					SPAN_DANGER("As \the [user] pulls the trigger on \the [src], a bullet somehow fires backwards out of it1"),
+					SPAN_DANGER("As \the [user] pulls the trigger on \the [src], a bullet somehow fires backwards out of it!"),
 					SPAN_DANGER("Your \the [src] fires backwards, shooting you in the face!")
 					)
 				currently_firing = FALSE

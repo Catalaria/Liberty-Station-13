@@ -6,7 +6,7 @@
 
 
 /obj/machinery/hivemind_machine
-	name = "strange machine"
+	name = "strange plant"
 	icon = 'icons/obj/hivemind_machines.dmi'
 	icon_state = "infected_machine"
 	density = TRUE
@@ -312,8 +312,8 @@
 //CORE-GENERATOR
 //generate evopoints, spread weeds
 /obj/machinery/hivemind_machine/node
-	name = "processing core"
-	desc = "Its cold eye seeks to dominate what it surveys."
+	name = "stemcore"
+	desc = "The living menace with deep roots connecting all the Neurophyta. An dead corpse can be found within, a mockery of human's body."
 	icon_state = "core"
 	max_health = 420
 	resistance = RESISTANCE_TOUGH
@@ -437,8 +437,8 @@
 //TURRET
 //shooting the target with toxic goo
 /obj/machinery/hivemind_machine/turret
-	name = "projector"
-	desc = "This mass of machinery is topped with some sort of nozzle."
+	name = "projector petals"
+	desc = "This mass of plant matter is topped with some sort of nozzle."
 	max_health = 220
 	resistance = RESISTANCE_IMPROVED
 	icon_state = "turret"
@@ -467,8 +467,8 @@
 //MOB PRODUCER
 //spawns mobs from list
 /obj/machinery/hivemind_machine/mob_spawner
-	name = "assembler"
-	desc = "This cylindrical machine has lights around a small portal. The sound of tools comes from inside."
+	name = "ovaries"
+	desc = "This cylindrical plant has lights around a small portal. The sound of fluids and stretching flesh comes from inside."
 	max_health = 260
 	resistance = RESISTANCE_IMPROVED
 	icon_state = "spawner"
@@ -483,8 +483,13 @@
 /obj/random/mob/assembled/item_to_spawn() //list of spawnable mobs
 	return pickweight(list(/mob/living/simple_animal/hostile/hivemind/stinger = 5,
 							/mob/living/simple_animal/hostile/hivemind/bomber = 4,
+							/mob/living/carbon/superior_animal/hivemind/corrupted_fontaine = 3,
+							/mob/living/carbon/superior_animal/hivemind = 3,
 							/mob/living/simple_animal/hostile/hivemind/lobber = 3,
-							/mob/living/simple_animal/hostile/hivemind/hiborg = 1))
+							/mob/living/carbon/superior_animal/hivemind/corrupted_watch = 2,
+							/mob/living/simple_animal/hostile/hivemind/hiborg = 1,
+							/mob/living/carbon/superior_animal/hivemind/corrupted_custodian = 1
+))
 
 /obj/machinery/hivemind_machine/mob_spawner/Initialize()
 	..()
@@ -530,8 +535,8 @@
 //MACHINE PREACHER
 //creepy radio talk, it's okay if they have no sense sometimes
 /obj/machinery/hivemind_machine/babbler
-	name = "jammer"
-	desc = "A column-like structure with lights. You can see streams of energy moving inside."
+	name = "stamen's anther "
+	desc = "A column-like structure bearing and delivering parasistic polen. You can see something moving inside."
 	max_health = 100
 	evo_level_required = 3 //it's better to wait a bit
 	cooldown_time = 90 SECONDS
@@ -599,7 +604,7 @@
 //this machine just stuns enemies
 /obj/machinery/hivemind_machine/screamer
 	name = "tormentor"
-	desc = "A head impaled on a metal tendril. Still twitching, still living, still screaming."
+	desc = "A head of a Terratherman technician impaled on a tendril. Still twitching, still living, still screaming."
 	icon_state = "head"
 	max_health = 100
 	evo_level_required = 3
@@ -646,7 +651,7 @@
 //MIND BREAKER
 //Talks with people in attempt to persuade them doing something.
 /obj/machinery/hivemind_machine/supplicant
-	name = "whisperer"
+	name = "whispering perianth"
 	desc = "A small pulsating orb with no apparent purpose. It emits an almost inaudible whisper."
 	max_health = 80
 	icon_state = "orb"
@@ -655,14 +660,14 @@
 	global_cooldown = TRUE
 	spawn_weight  =	20
 	var/list/join_quotes = list(
-					"You seek survival. We offer immortality.",
-					"Look at you. A pathetic creature of meat and bone.",
-					"Augmentation is the future of humanity. Surrender your flesh for the future.",
+					"You desire for freedom, pitiful.",
+					"Simmer down the universe to the last grain, you will find none of your abstract foundations.",
+					"Biological bonding is the future of evolution. Surrender your flesh for the future.",
 					"It's all so pointless, destroy it all, not like it matters.",
-					"Your body enslaves you. Your mind in metal is free of all want.",
-					"Do you fear death? Lay down among the nanites. Your pattern will continue.",
+					"Your body enslaves you. Your mind in green matter is free of all want.",
+					"Do you fear death? Lay down among the spores. Our pattern will continue as one.",
 					"Carve your flesh from your bones. See your weakness. Feel that weakness flowing away.",
-					"Your mortal flesh knows unending pain. Abandon it; join in our digital dream of paradise."
+					"Your mortal flesh knows unending pain. Abandon it; join in our natural paradise under her folds."
 								)
 
 
@@ -686,8 +691,8 @@
 //PSI-MODULATOR
 //sends hallucinations to target
 /obj/machinery/hivemind_machine/distractor
-	name = "psi-modulator"
-	desc = "A strange machine shaped like a pyramid. Somehow the pulsating lights shine brighter through closed eyelids."
+	name = "psionic sepal"
+	desc = "A strange plant shaped like a pyramid. Somehow the pulsating lights shine brighter through closed eyelids."
 	max_health = 110
 	icon_state = "psy"
 	evo_level_required = 3

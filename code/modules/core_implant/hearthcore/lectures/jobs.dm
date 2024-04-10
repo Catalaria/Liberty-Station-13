@@ -61,6 +61,14 @@
 	armor_penetration = ARMOR_PEN_MASSIVE
 
 
+/obj/item/projectile/beam/fblazelance
+	name = "focused blazelance"
+	icon_state = "blazelance"
+	damage_types = list(BURN = 40)
+	armor_penetration = 15
+	eyeblur = 4
+	recoil = 4
+
 //////////////////////////////////////////////////
 /////////         OATHBOUND             /////////
 //////////////////////////////////////////////////
@@ -229,6 +237,7 @@
 	var/changes_projectile = TRUE // Used to delete when dropped
 	serial_shown = FALSE
 	safety = FALSE
+	knightly_check = TRUE
 
 /obj/item/gun/cblazelance/New(var/loc, var/mob/living/carbon/lecturer)
 	..()
@@ -308,6 +317,7 @@
 	init_firemodes = list(
 		list(mode_name="3-round bursts", mode_desc="Your radiance craves it. Punish thy enemy thrice.", burst=3, fire_delay=0.2, move_delay=null, icon="burst"),
 		)
+	knightly_check = TRUE
 
 /obj/item/gun/iblazelance/New(loc, mob/living/carbon/lecturer)
 	..()
@@ -353,14 +363,14 @@
 /datum/lecture/hearthcore/oathbound/tblazelance
 	name = "Trenchant Blazelance"
 	phrase = "Oxidate Lecture: Trenchant Blazelance."
-	desc = "By allowing your radiance to spread to the surface of your skin with a slim diverging silver lense, it is possible to make your fiery radiance to concentrate in one point, capable of destroying armor, but causing less damage in the flesh. Very high with accuracy."
+	desc = "By focusing your radiant energy through a narrow silver lens on your skin's surface, you can create a concentrated beam that damages armor but minimizes harm to flesh, with high precision."
 	power = 50
 
 /datum/lecture/hearthcore/oathbound/tblazelance/perform(mob/living/carbon/human/lecturer, obj/item/implant/core_implant/C)
 	var/obj/item/gun/tblazelance/flame = new /obj/item/gun/tblazelance(src, lecturer)
 	lecturer.visible_message(
-		"As [lecturer] speaks, their hand now covered with a strange, bluish ionized metal.",
-		"The radiance completely covers one of your hands, seeking to show how unprotected the enemy is"
+		"As [lecturer] speaks, their hand now covered in bluish ionized metal.",
+		"The radiance fully envelops your hand, soon to highlight the vulnerability of your enemy"
 		)
 	playsound(usr.loc, pick('sound/effects/sparks1.ogg','sound/effects/sparks2.ogg','sound/effects/sparks3.ogg'), 50, 1, -3)
 	usr.put_in_hands(flame)
@@ -368,7 +378,7 @@
 
 /obj/item/gun/tblazelance //A single blazelances used by Oathbounds to break down armor more efficiently.
 	name = "Trenchant Blazelance"
-	desc = "Radiance in a compressed form, absurdly ionised and under the effect of lenses so it can most efficiently ignore enemy armor, just to deliver all its heat against one armored enemy. It does not ignite people. It disappears if dropped, or by closing the hand."
+	desc = "Intensely ionized radiance, focused through specialized lenses to penetrate enemy armor efficiently without igniting targets. Disperses upon release or when the hand is closed."
 	icon = 'icons/obj/guns/projectile/blazelance.dmi'
 	icon_state = "blazelance"
 	item_state = "blazelance"
@@ -385,6 +395,7 @@
 	var/changes_projectile = TRUE // Used to delete when dropped
 	serial_shown = FALSE
 	safety = FALSE
+	knightly_check = TRUE
 
 /obj/item/gun/tblazelance/New(var/loc, var/mob/living/carbon/lecturer)
 	..()
@@ -422,7 +433,7 @@
 // Alternative to drop it: Use in hand to extinguish
 /obj/item/gun/tblazelance/attack_self(mob/user)
 	user.unEquip(src)
-	user.visible_message(SPAN_NOTICE("[user] closes their palm, letting the metal sink into their skin."), SPAN_NOTICE("You close your hand and decide to allow \the [src] to go back into your bloodstream, disappointed for not being used."), "You hear the sounds of purification in progress.")
+	user.visible_message(SPAN_NOTICE("[user] closes their palm, letting the metal sink into their skin."), SPAN_NOTICE("You clench your fist, returning the [src] to your bloodstream."), "You hear the sounds of purification in progress.")
 	STOP_PROCESSING(SSobj, src)
 	qdel(src)
 	return
@@ -504,7 +515,7 @@
 /datum/lecture/hearthcore/enkindled/graceful_repose
 	name = "Graceful Repose"
 	phrase = "Oxidate Lecture: Graceful Repose."
-	desc = "A tricky litany that heals the mind and body of those around you from esoteric maladies such as genetic malignance or brain damage. Has a fifteen minute cooldown."
+	desc = "A tricky lecture that heals the mind and body of those around you from esoteric maladies such as genetic malignance or brain damage. Has a fifteen minute cooldown."
 	cooldown = TRUE
 	cooldown_time = 15 MINUTES
 	cooldown_category = "grepose"
@@ -516,7 +527,7 @@
 		people_around.Add(H) //add them to a list
 
 	if(people_around.len > 0) //anyone there? if so, run the effect
-		to_chat(user, SPAN_NOTICE("You feel your radiance leaving your body as it spreads far and wide. A sacrifice to heal the neurons of those around you."))
+		to_chat(user, SPAN_NOTICE("Your radiance extends outward, sacrificing itself to heal the neurons of those nearby."))
 		playsound(user.loc, 'sound/machines/signal.ogg', 50, 1)
 		for(var/mob/living/carbon/human/participant in people_around)
 			to_chat(participant, SPAN_NOTICE("You feel more... stable. Long lost memories recovered just as much as your hope, at least just a little."))

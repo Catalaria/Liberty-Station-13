@@ -105,30 +105,69 @@
 		rad = 35
 	)
 
+/obj/item/clothing/head/hood/trapper/tribal
+	name = "Frostwalker mask"
+	desc = "An duraluminium mask from the Frostwalker tribe. It seems angry."
+	icon_state = "frostwalker_mask"
+	item_state = "frostwalker_mask"
+
 /obj/item/clothing/head/hood/trapper/bone
 	name = "boneplated hood"
-	desc = "A warm, handmade woolen hood adorned with the emblem of Fontaine and reinforced with dark bones from this planet's fauna due to the well know hardness and ability to dissipate energy from the creature's bones."
+	desc = "A warm, handmade woolen hood adorned with the emblem of Black Bolt and reinforced with dark bones from this planet's fauna due to the well know hardness and ability to dissipate energy from the creature's bones."
 	icon_state = "hood_bones"
 	item_state = "hood_bones"
 	armor_list = list(
-		melee = 25,
-		bullet = 45,
-		energy = 25,
+		melee = 30,
+		bullet = 30,
+		energy = 55,
 		bomb = 10,
 		bio = 100,
 		rad = 50
 	)
 
+/obj/item/clothing/head/hood/trapper/bone/tribal
+	name = "Nhandereko Mask"
+	desc = "Handforged mask of Nhandereko Demigod, the demigod guardian of time. The armor shows bulletproof capacities similar to ceramics due to its material."
+	icon_state = "nhandereko_mask"
+	item_state = "nhandereko_mask"
+
 /obj/item/clothing/head/hood/trapper/shell
 	name = "Shellclad Hood"
-	desc = "A handcrafted, warm woolen hood bearing the emblem of Fontaine, reinforced with unnatural shells designed to absorb impacts and thwart blade penetration. Everything will turn into alien crab one day, and the user of this hood is far too clueless about it."
+	desc = "A handcrafted, warm woolen hood bearing the emblem of Black Bolt, reinforced with unnatural shells designed to absorb impacts and thwart blade penetration. Everything will turn into alien crab one day, and the user of this hood is far too clueless about it."
 	icon_state = "hood_chitin"
 	item_state = "hood_chitin"
 	armor_list = list(
-		melee = 45,
-		bullet = 25,
-		energy = 25,
+		melee = 55,
+		bullet = 30,
+		energy = 30,
 		bomb = 10,
 		bio = 100,
 		rad = 50
 	)
+
+/obj/item/clothing/head/hood/trapper/shell/tribal
+	name = "Mask of Yaguarete"
+	desc = "Handforged mask of Yaguarete Demigod, the demigod of Strife. The helmet is suitable to counter blades and blunt damage."
+	icon_state = "yaguarete_mask"
+	item_state = "yaguarete_mask"
+
+/obj/item/clothing/head/hood/trapper/prismatic
+	name = "Prismatic Hat"
+	desc = "A handcrafted, warm woolen hood bearing the emblem of Black Bolt, reinforced with a self-mending, reflective material that looks like pearls. It is clearly alive and pulsating."
+	icon_state = "hood_chitin"
+	item_state = "hood_chitin"
+	armor_list = list(
+		melee = 30,
+		bullet = 30,
+		energy = 55,
+		bomb = 10,
+		bio = 100,
+		rad = 50
+	)
+
+/obj/item/clothing/head/hood/trapper/prismatic/tribal
+	name = "Mask of Ipanema"
+	desc = "Handforged mask of the demigod Ipanema, the star devourer. The helmet takes direct advantage of the self-mending and reflective nature of Space Nacre. \
+	This headgear is suitable to protect the user against the weapons Precursors used, such as Plasma and Laser guns. Currently suitable against the Circhosian cult and the Colony."
+	icon_state = "ipanema_mask"
+	item_state = "ipanema_mask"

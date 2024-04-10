@@ -102,7 +102,7 @@ This should be identical to NEV's Soulcrypt; credit to them for this code.
 
 	if(!clean_of_hearthcore())
 		for(var/mob/O in hearers(3, wearer))
-			O.show_message("\icon[src] <span class = 'notice'>ERROR, INTERFERING HARDWARE DETECTED.</span>", 2)
+			O.show_message("\icon[src] <span class = 'notice'>ERROR, INTERFERING ARTIFICIAL IMMUNOLOGICAL SYSTEM DETECTED.</span>", 2)
 		return
 
 	activate()

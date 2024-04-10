@@ -78,6 +78,11 @@
 
 	var/obj/item/implant/core_implant/hearthcore/C = get_core_implant(/obj/item/implant/core_implant/hearthcore)
 	if(C && C.active)
+		if(gender==FEMALE)
+			playsound(loc, 'sound/sanity/fire-emblem-female-dying.ogg', 100, 1) // fire emblem genealogy of the holy war dying sfx
+		else
+			playsound(loc, 'sound/sanity/fire-emblem-male-dying.ogg', 100, 1) // fire emblem genealogy of the holy war dying sfx
+
 		var/obj/item/hearthcore_upgrade/upgrade = C.upgrade
 		if(upgrade && upgrade.active && istype(upgrade, CUPGRADE_ATONEMENT_GIFT))
 			var/obj/item/hearthcore_upgrade/atonement_gift/atonement = upgrade

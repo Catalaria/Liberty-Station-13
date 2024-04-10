@@ -1168,7 +1168,6 @@
 "Pa" = (
 /obj/effect/decal/cleanable/crayon,
 /obj/effect/decal/cleanable/blood/splatter,
-/obj/item/clothing/mask/gas/bonedog,
 /turf/simulated/floor/rock/manmade/concrete,
 /area/asteroid/rogue)
 "Pn" = (

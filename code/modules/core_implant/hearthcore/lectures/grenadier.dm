@@ -19,6 +19,7 @@
 	var/changes_projectile = TRUE // Used to delete when dropped
 	serial_shown = FALSE
 	safety = FALSE
+	knightly_check = TRUE
 
 /obj/item/gun/siege_blazelance/consume_next_projectile()
 	if(!ispath(projectile_type)) // Do we actually shoot something?
@@ -58,36 +59,40 @@
 /datum/lecture/hearthcore/grenadier/sblazelance
 	name = "Siege Blaze lance" //Normal attack that explodes after hit. It shouldn't be that hard. I ask you to nerf how long it spreads around! I just gotta be dangerous to the user and the person it hits
 	phrase = "Oxidate Lecture: Siege Blazelance."
-	desc = "The radiance needs more oxygen, the silvery neurons must be fed with your blood to enhance itself before sacrifice, to react as a minor FAE bomb with oxygen alone. If you hear your radiance trying to scream their nucleus out about this exploding in your hand in six seconds, well. It will. Throw it fast and good luck, Knight."
+	desc = "Radiance craves oxygen as usual, but if fed with your muscular tissues, it has enough power to detonate. If not utilized promptly, your hands will have the same fate."
 	power = 75
 	blood_cost = 20
 
 /datum/lecture/hearthcore/grenadier/sblazelance/perform(mob/living/carbon/human/lecturer, obj/item/implant/core_implant/C)
-	var/rob = lecturer.stats.getStat(STAT_ROB)
-	if(rob >= 40) //You need 40 robustness at minimum to use this lecture
+	var/wil = lecturer.stats.getStat(STAT_WIL)
+	if(wil >= 40) //You need 40 robustness at minimum to use this lecture
 		var/flame = new /obj/item/gun/siege_blazelance(src, lecturer)
 		if(lecturer.put_in_active_hand(flame))
 			addtimer(CALLBACK(C, /obj/item/implant/core_implant/proc/warn_nuker, lecturer, flame, C), 3 SECONDS)
 
-			lecturer.visible_message("As [lecturer] speaks, their hand now covered with a strange, blood-red ionized metal that sparks with pure unstability.")
+			lecturer.visible_message("As [lecturer] speaks, their hand veiled on blood-red ionized metal, crackling with pure instability.")
 			lecturer.adjustFireLoss(10)
 			lecturer.adjustHalLoss(10)
+			lecturer.updatehealth()
 			return TRUE
 		qdel(flame)
 		to_chat(lecturer, "<span class='info'>You need your active hand to be free!.</span>")
 		return FALSE
-	to_chat(lecturer, "<span class='info'>It feels the same as adding a new color to the light spectrum. Your body does not have the robustness to train your silvery neurons, but this time you think this is for the best.</span>")
+	to_chat(lecturer, "<span class='info'>It feels akin to introducing a new hue to the light spectrum. Your body lacks the robustness to train your silvery neurons, but perhaps this outcome is for the best.</span>")
 	return FALSE
 
 /obj/item/implant/core_implant/proc/warn_nuker(mob/lecturer, obj/flame, obj/item/implant/core_implant/C)
 	if(ishuman(flame.loc))
-		to_chat(lecturer, "<span class='info'>\
-		You struggle to keep hold of the radiance in your hand, \
-		as it struggles to not start melting your hand. \
-		You can feel the cortisol your own silvery neurons being released, \
-		the fear that it might explode in your hand before you can even shoot it. \
-		You feel stressed. It slightly burns..</span>")
-		addtimer(CALLBACK(C, /obj/item/implant/core_implant/proc/nukier_holder, lecturer, flame, C), 3 SECONDS)
+		addtimer(CALLBACK(C, /obj/item/implant/core_implant/proc/nukier_holder, lecturer, flame, C), 5 SECONDS)
+		to_chat(lecturer, "<span class='info'>You struggle to keep hold of the radiance in your hand.</span>") //One second
+		sleep(1 SECOND)
+		to_chat(lecturer, "<span class='info'>The radiance struggles to not melt your skin.</span>") //Two seconds
+		sleep(1 SECOND)
+		to_chat(lecturer, "<span class='info'>The stress reaches your mind, sweet cortisol.</span>") //Three seconds
+		sleep(1 SECOND)
+		to_chat(lecturer, "<span class='info'>You fear the pressure giving in.</span>") //Four seconds
+		sleep(1 SECOND)
+		to_chat(lecturer, "<span class='info'>The protective layer bursted. It started to burn.</span>") //Five seconds
 	else
 		playsound(usr.loc, pick('sound/effects/sparks1.ogg','sound/effects/sparks2.ogg','sound/effects/sparks3.ogg'), 50, 1, -3)
 		new /obj/effect/explosion(flame.loc)
@@ -132,25 +137,25 @@
 	return TRUE
 
 /datum/lecture/hearthcore/grenadier/grenadiercurse
-	name = "Cannoneer bombardement Prototype" //"RANDOM SH!T GOOOOO!"
-	phrase = "Oxidate Lecture: Cannoneer bombardement"
-	desc = "The true essence of the Grenadier Knight in form of lecture, unstability beyond redemption. This power manifests pressured radiance with random portions of chemicals acquired from the body and air, which will react like no different of a grenade - beyond being literally any grenade at random, without having the right to choose. \
-	However, this lecture still is a prototype."
+	name = "Cannoneer bombardement" //"RANDOM SH!T GOOOOO!"
+	phrase = "Oxidate Lecture: Cannoneer bombardement."
+	desc = "The true essence of the Grenadier Knight in form of lecture, unstability beyond redemption. This power manifests pressured radiance with random portions of chemicals acquired from the body and air, which will react like no different of a grenade - beyond being literally any grenade at random, without having the right to choose."
 	power = 70
 
 /datum/lecture/hearthcore/grenadier/grenadiercurse/perform(mob/living/carbon/human/lecturer, obj/item/implant/core_implant/C)
-	var/rob = lecturer.stats.getStat(STAT_ROB)
-	if(rob >= 40) //You need 40 robustness at minimum to use this lecture
-		var/flame = new /obj/item/grenade/pocketchaos(lecturer)
-		if(lecturer.put_in_active_hand(flame))
-			lecturer.visible_message(
-				"As [lecturer] speaks, as threads of radiance covers their hands and slice their wrist before mending it back together, leaving behind a reddish polygon on their hand.",
-				"You've done it, you've enslaved your own radiance and forced them to hurt you. This is the feeling of power, control and destruction. To no longer be limited by the radiance, one must embrace Chaos."
-			)
-			playsound(usr.loc, pick('sound/effects/sparks1.ogg','sound/effects/sparks2.ogg','sound/effects/sparks3.ogg'), 50, 1, -3)
-			return TRUE
-		qdel(flame)
-		to_chat(lecturer, "<span class='info'>You need your active hand to be free!.</span>")
+	var/obj/item/flame/custodian_spark/flame = new /obj/item/flame/custodian_spark(src, lecturer)
+	if(lecturer.stats.getStat(STAT_WIL) < 25) //You need 25 willpower at minimum to use this lecture
+		to_chat(lecturer, "<span class='warning'>You lack the required willpower to control the [src].</span>")
 		return FALSE
-	to_chat(lecturer, "<span class='info'>It feels the same as adding a new color to the light spectrum. Your body does not have the robustness to train your silvery neurons, but this time you think this is for the best.</span>")
-	return FALSE
+	// Don't spawn the item in question if our hands aren't empty, to prevent it from despawning.
+	if(lecturer.hands_are_full())
+		to_chat(lecturer, "<span class='warning'>You need focal points to use this lecture! Keep your hands free.</span>")
+		return FALSE
+
+	lecturer.visible_message(
+		"As [lecturer] speaks, as threads of radiance covers their hands and slice their wrist before mending it back together, leaving behind a reddish polygon on their hand.",
+		"You've done it, you've enslaved your own radiance and forced them to hurt you. This is the feeling of power, control and destruction. To no longer be limited by the radiance, one must embrace Chaos."
+		)
+	playsound(usr.loc, pick('sound/effects/sparks1.ogg','sound/effects/sparks2.ogg','sound/effects/sparks3.ogg'), 50, 1, -3)
+	usr.put_in_hands(flame)
+	return TRUE

@@ -341,6 +341,41 @@
 			H.adjustBruteLoss(-healing_power)
 			H.adjustFireLoss(-healing_power)
 
+/*
+/datum/perk/job/stonemason
+	name = "Stonemason"
+	desc = "Literally a stand."
+	gain_text = "theres a man behind u"
+	icon_state = "bad_breath" // https://game-icons.net
+	var/ticks_to_next_process = 3
+	var/damage = 20
+	var/area_radius = 7
+	var/static/stat_buff
+	var/force_active = 0
+	var/max_targets = 5
+	var/list/currently_affected = list()
+
+/datum/perk/job/stonemason/on_process()
+	if(!..())
+		return
+	if(holder.species.flags & NO_BREATHE || holder.internal)
+		return
+	for(var/mob/living/carbon/human/H in viewers(5, holder))
+		if(H.stat == DEAD || H.get_core_implant(/obj/item/implant/core_implant/hearthcore))
+			continue
+		H.adjustBruteLoss(15)
+		H.updatehealth()
+		H.emote("cringes")
+		to_chat(H, SPAN_WARNING("[holder]'s man punched you!!"))
+
+	if(ticks_to_next_process > 0)
+		ticks_to_next_process--
+		return
+	else
+		ticks_to_next_process = 3
+*/
+
+
 /datum/perk/job/codespeak
 	name = "Codespeak"
 	desc = "You know Watchman codes."

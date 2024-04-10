@@ -13,8 +13,10 @@
 		/datum/job/dc,
 		/datum/job/outsider,
 		/datum/job/cyborg, //To stop people auto dropping these
-		/datum/job/ai
-		)
+		/datum/job/ai,
+		/datum/job/cultist,
+		/datum/job/insurgent
+		) // Not 100% sure if we are making Tribals unknighteables. Will need to loretalk with Gundam or Ezoken later.
 	allowed_depts = CHURCH
 	allow_modifications = TRUE
 	restricted_to_species = list(FORM_HUMAN, FORM_SABLEKYNE, FORM_KRIOSAN, FORM_AKULA, FORM_MARQUA, FORM_NARAMAD, FORM_OPIFEX, FORM_CINDAR)

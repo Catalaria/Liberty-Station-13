@@ -13,7 +13,7 @@
 	var/address = null
 	var/power = 0
 	var/max_power = 0
-	var/power_regen = 0.5
+	var/power_regen = 0.5 //This is likely going to have an complex system with upgrades later. Hopefully. -Monochrome9090
 	var/success_modifier = 1
 	var/list/known_lectures = list() //A list of names of lectures which are recorded in this hearthcore
 	//These are used to retrieve the actual lecture datums from the global all_lectures list

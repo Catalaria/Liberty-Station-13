@@ -21,6 +21,14 @@
 
 /datum/lecture/hearthcore/base/fireball/perform(mob/living/carbon/human/lecturer, obj/item/implant/core_implant/C)
 	var/obj/item/gun/custodian_fireball/flame = new /obj/item/gun/custodian_fireball(src, lecturer)
+	if(lecturer.stats.getStat(STAT_WIL) < 15)
+		to_chat(lecturer, "<span class='warning'>You lack the required willpower to control the [src].</span>")
+		return FALSE
+	// Don't spawn the item in question if our hands aren't empty, to prevent it from despawning.
+	if(lecturer.hands_are_full())
+		to_chat(lecturer, "<span class='warning'>You need focal points to use this lecture! Keep your hands free.</span>")
+		return FALSE
+
 	lecturer.visible_message(
 		"As [lecturer] speaks, their hand is covered in a fierce blue fireball.",
 		"A blue fireball completely covers one of your hands."
@@ -47,6 +55,7 @@
 	var/mob/living/carbon/holder // Used to delete when dropped
 	serial_shown = FALSE
 	safety = FALSE
+	knightly_check = TRUE
 
 /obj/item/gun/custodian_fireball/New(var/loc, var/mob/living/carbon/lecturer)
 	..()
@@ -92,6 +101,14 @@
 
 /datum/lecture/hearthcore/base/thumbspire/perform(mob/living/carbon/human/lecturer, obj/item/implant/core_implant/C)
 	var/obj/item/flame/custodian_spark/flame = new /obj/item/flame/custodian_spark(src, lecturer)
+	if(lecturer.stats.getStat(STAT_WIL) < 5)
+		to_chat(lecturer, "<span class='warning'>You lack the required willpower to control the [src].</span>")
+		return FALSE
+	// Don't spawn the item in question if our hands aren't empty, to prevent it from despawning.
+	if(lecturer.hands_are_full())
+		to_chat(lecturer, "<span class='warning'>You need focal points to use this lecture! Keep your hands free.</span>")
+		return FALSE
+
 	lecturer.visible_message(
 		"As [lecturer] speaks, their thumb is covered by a small, intense spark.",
 		"A small spark and flame quickly covers one of your thumbs."

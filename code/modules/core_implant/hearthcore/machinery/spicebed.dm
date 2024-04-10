@@ -138,8 +138,8 @@
 //TODO: move these somewere reasonable
 /obj/item/spice_plant
 	name = "rotton gourd seed"
-	desc = "A bad seed from a bad plant, you should report this somewhere."
-	icon = 'icons/obj/custodians_spicebed.dmi'
+	desc = "A bad seed from a bad plant, you should report this somewere."
+	icon = 'icons/obj/neotheology_spicebed.dmi'
 	icon_state = "debug"
 	var/amount_to_harvest = 3 //When we harvest this plant how many items we get
 	var/growthrate = 5 //How much out of 100 are plant is growing per successful process tick
@@ -148,7 +148,8 @@
 
 /obj/item/spice_plant/ginger_root
 	name = "ginger root"
-	desc = "A white root that lost most of its flavour and turned as hard as rock through cultivation."
+	desc = "Ginger roots are extensively employed in food and drink brewing, primarily to maintain the Enkindled Calderon's flasks at a consistent temperature, \
+	preventing heat dissipation until the flask is broken. This ensures the flask retains its heat throughout the process."
 	icon_state = "ginger_root"
 	amount_to_harvest = 4
 	growthrate = 2
@@ -157,7 +158,7 @@
 
 /obj/item/spice_plant/spikenard
 	name = "spikenard bundle"
-	desc = "A branch of spikenard used in brewing, has fast growth rate due to its uses as decoration."
+	desc = "Spikenard, which was employed as a perfume and a wine spice during the Early Roman Empire and even referenced in the Bible, is utilized by the Custodians as an essential oil in numerous fast-burning flasks."
 	icon_state = "spikenard"
 	amount_to_harvest = 2
 	growthrate = 10
@@ -167,7 +168,7 @@
 
 /obj/item/spice_plant/clove
 	name = "clove root"
-	desc = "A brown root that lost most of its cooking use after decades of cultivation."
+	desc = "Due to the presence of eugenol, clove brews are widely recognized for their analgesic properties and effectiveness as an insect repellent. Numerous clove-based brews can have a highly toxic effect on insects."
 	icon_state = "clove"
 	amount_to_harvest = 3
 	growthrate = 5
@@ -175,8 +176,8 @@
 	Qi = "cr"
 
 /obj/item/spice_plant/cinnamon
-	name = "sinnamon branch"
-	desc = "A brother of cinnamon but without any flavours, used in brewing and cultivation."
+	name = "cinnamon branch"
+	desc = "Although it has no direct impact on health, cinnamon is commonly added to custodian brews to facilitate the absorption of the brew by the body, enabling chemicals to reach areas beyond the stomach. It is widely utilized in various custodian healing liqueurs."
 	icon_state = "cinnamon"
 	amount_to_harvest = 3
 	growthrate = 5
@@ -185,7 +186,7 @@
 
 /obj/item/spice_plant/rosemary
 	name = "rosemary bundle"
-	desc = "A branch of rosemary used in brewing or as decoration."
+	desc = "A fragrant herb esteemed by Custodians, celebrated for enhancing memory and concentration, promoting vitality and resilience - but mostly used for culinary purposes."
 	icon_state = "rosemary"
 	amount_to_harvest = 2
 	growthrate = 10
@@ -194,8 +195,9 @@
 	Qi = "rm"
 
 /obj/item/spice_plant/cumin
-	name = "cumin seeds"
-	desc = "The leftover seedlings of cumin that are unable to grow after a successful harvest, used in brewing."
+	name = "cumin bims"
+	desc = "Cumin, a spice abundant in antioxidants like flavonoids, plays a vital role in countering the adverse effects of potions. It is often found alongside potions containing Clove as the main ingredient. \
+	Strangely enough, most custodians highly dislike Cumin for its soapy taste, but its usefulness remains as their sole reason for its inclusion."
 	icon_state = "cumin"
 	amount_to_harvest = 6
 	growthrate = 5
@@ -204,7 +206,7 @@
 
 /obj/item/spice_plant/lilyflower
 	name = "lily flower"
-	desc = "A large head of a lily flower, can be used for brewing or decoration."
+	desc = "The Lily Flower is widely recognized for its ability to alleviate the discomfort caused by burns, ulcers, and cough. It has also come to symbolize perseverance within the Custodian community, often adorning their walls as a symbolic representation."
 	icon_state = "lilyflower"
 	amount_to_harvest = 2
 	growthrate = 2
@@ -214,7 +216,8 @@
 
 /obj/item/spice_plant/marigold
 	name = "marigold flower"
-	desc = "A large branch of a marigold, can be used for brewing or decoration."
+	desc = "Marigold, renowned for its antiseptic properties and historical use in wound treatment before the advent of chemical synthesis, plays a crucial role for the Custodians. \
+	It holds special significance within enkindled communities, symbolizing a culture where gifting a Marigold to another Enkindled signifies either a lovely flirt or celebrating for one's health."
 	icon_state = "marigold"
 	amount_to_harvest = 2
 	growthrate = 2
@@ -224,7 +227,8 @@
 
 /obj/item/spice_plant/yerbamate
 	name = "yerba mate branch"
-	desc = "A small branch of yerba mate, can be used for brewing."
+	desc = "Coming from the Custodian's south american first colonial reaches centuries ago, the Yerba Mate still remains very present on their culture, possessing beneficial properties that aid in digestion, \
+	provide relief from respiratory ailments and body energy. It is extensively utilized in advanced custodian brews to enhance the oxygen levels circulating in the veins, thereby optimizing muscular activity and endurance."
 	icon_state = "yerbamate"
 	amount_to_harvest = 3
 	growthrate = 5
@@ -233,7 +237,9 @@
 
 /obj/item/spice_plant/coriander
 	name = "coriander leaf"
-	desc = "A small handful of leaves from a coriander bed. It can be used for brewing, as cultivation methods of this plant have rendered its edibility questionable."
+	desc = "Coriander, long known for its potential to ease gastrointestinal issues, is used by the Enkindled in potion production. \
+	This process denatures coriander's chemicals, enabling targeted muscular tension in specific body areas. \
+	Crafted potions were believed to enhance blood circulation independently of the heart, a forgotten Enkindled secret."
 	icon_state = "coriander"
 	amount_to_harvest = 3
 	growthrate = 5
@@ -251,16 +257,16 @@
 
 /obj/item/reagent_containers/food/drinks/flask/gourdflask
 	name = "gourd flask"
-	desc = "A carved out gourd bulb, used to transport liquids."
-	icon = 'icons/obj/custodians_spicebed.dmi'
+	desc = "A gourd utilized as a flask for easy access. Not really better than the average flask, but it is lightweight and gives anything a tasteful oak taste - and making sure you are not drinking microplastics or aluminium ions."
+	icon = 'icons/obj/neotheology_spicebed.dmi'
 	icon_state = "drinkable_gourd"
 	volume = 60
 
 /obj/item/stack/thrown/gourd
 	name = "throwable gourd"
-	desc = "A gourd that has been modified by use of biosilk to become a throwable container."
+	desc = "A gourd fastened with biosilk to be easily throwed against any victim. There is aluminium wrappings and radiance inside that breaks the gourd when a suitable impact reaches it. Being shot at doesn't trigger any explosion."
 	icon_state = "throwable_gourd"
-	icon = 'icons/obj/custodians_spicebed.dmi'
+	icon = 'icons/obj/neotheology_spicebed.dmi'
 	amount = 1
 	max_amount = 1
 

@@ -5,7 +5,7 @@ var/list/disciples = list()
 /obj/item/implant/core_implant/hearthcore
 	name = "Hearthcore"
 	icon_state = "hearthcore_green"
-	desc = "This symbol and power core of knighthood resides at the very heart of Custodian accolades, a silver implant that marks the initiation of a new knight."
+	desc = "The symbol and powercore of knighthood that resides in the very heart of Custodian accolades, a silver implant that marks the initiation of a new knight."
 	allowed_organs = list(BP_CHEST)
 	implant_type = /obj/item/implant/core_implant/hearthcore
 	layer = ABOVE_MOB_LAYER

@@ -3,6 +3,7 @@
 //////////////////////////////
 // These items are special items found, dug up, or randomly created that require psions to invoke. They should generally be thematic and interesting, but somewhat or outright useful too. -Kaz
 
+/* Commenting this since I received information this is GENUINE ERP-related content surrounding Kazkin and SCP. So like. Yeah. This is VERY LIKELY to be REMOVED until someone proves the allegations otherwise.
 /obj/item/clothing/mask/gas/bonedog
 	name = "Mask of the Bone Dog"
 	desc = "The ivory bleached skull of some kind of canine. Was this a trophy of a wolf slain in battle or a token of a lost pet taken and remembered by its master? Perhaps it is the skull of a kriosan, \
@@ -44,3 +45,4 @@
 	to_chat(usr, "You invoke the hidden potential from this long forgotten mask, your mind becomes cunning, your eyes sharp, you hear the wind howling. The effect is temporary, but powerful.")
 	usr.stats.addTempStat(STAT_COG, 30, 30 MINUTES, "bonedog_mask")
 	usr.stats.addTempStat(STAT_VIG, 15, 30 MINUTES, "bonedog_mask")
+*/

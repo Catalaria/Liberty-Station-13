@@ -44,7 +44,7 @@
 
 /turf/simulated/wall/church_reinforced
 	name = "stronghold wall"
-	desc = "A reinforced wall decorated with blue trimming and dotted with symbols of the Custodians."
+	desc = "A reinforced wall decorated with silver trimming and dotted with symbols of the Custodians."
 	icon_state = "church_reinforced"
 	icon_base_override = "church_standard"
 	icon_base_reinf_override = "church_reinforced"

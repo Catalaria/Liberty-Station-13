@@ -94,7 +94,7 @@
 	..()
 	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
 	I.tool_upgrades = list(
-	UPGRADE_MELEE_ARMOR = 30,		// This might sound massive, but we become far worse at firearms through it.
+	UPGRADE_MELEE_ARMOR = 25,		// This might sound massive, but we become far worse at firearms through it.
 	UPGRADE_STIFFNESS_ARMOR = 0.5, // Increased gun recoil
 	UPGRADE_OBSCURATION_ARMOR = 0.5 // Massive decreased accuracy
 	)
@@ -112,7 +112,7 @@
 	..()
 	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
 	I.tool_upgrades = list(
-	UPGRADE_BALLISTIC_ARMOR = 30,
+	UPGRADE_BALLISTIC_ARMOR = 25,
 	UPGRADE_STIFFNESS_ARMOR = 0.2,
 	UPGRADE_OBSCURATION_ARMOR = 0.2 // Values are lower so we can justify selling these to Watch
 	)
@@ -131,7 +131,7 @@
 	..()
 	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
 	I.tool_upgrades = list(
-	UPGRADE_ENERGY_ARMOR = 30,
+	UPGRADE_ENERGY_ARMOR = 25,
 	UPGRADE_STIFFNESS_ARMOR = 0.2,
 	UPGRADE_OBSCURATION_ARMOR = 0.2 // Values are lower so we can justify selling these to Watch
 	)
@@ -160,7 +160,7 @@
 	I.required_qualities = list(QUALITY_ARMOR)
 
 	/obj/item/tool_upgrade/armor/handmade
-	name = "Handmade Armor Upgrade kit"//is the replacement for every armor plating the union can make, its pretty weak but will do the work of be an armor upgrade even if its shitty, the guys with quality are the custodians, plus they can mass produce cheap armor upgrades if some miner is providing indsteel.
+	name = "Handmade Armor Upgrade kit"//is the replacement for every armor plating the union can make, its pretty weak but will do the work of be an armor upgrade even if its shitty, the guys with quality are the custodians, plus they can mass produce cheap armor upgrades if some miner is providing indsteel. //Update: Custodians don't make armor upgrades. Give terratherma their armor back.
 	desc = "A Very improvised set of armor plates and tiny metal reinforcements made out with metal remains by someone with knowledge of metalworking, it that can be bolted onto any armor to lightly enhance its general resistance in desperate times or times with low budget."
 	icon_state = "metal_plating"
 	matter = list(MATERIAL_ALUMINIUM = 25, MATERIAL_INDSTEEL = 5)

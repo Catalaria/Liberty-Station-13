@@ -21,6 +21,8 @@
 	wield_delay = 0.8 SECOND
 	wield_delay_factor = 0.2 // 20 vig
 
+	knightly_check = TRUE
+
 /obj/item/gun/energy/crossbow/ninja
 	name = "energy dart thrower"
 	desc = "Mini energy crossbow, though this looks black market and doesn't at all resemble existing similar weapons."

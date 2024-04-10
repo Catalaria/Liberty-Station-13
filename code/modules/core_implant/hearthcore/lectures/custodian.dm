@@ -81,16 +81,16 @@
 	return FALSE
 
 /datum/lecture/hearthcore/custodian/offering/buy_item
-	name = "Manifest Neural Links"
-	phrase = "Oxidate Lecture: Manifest neural links"
-	desc = "Powered by raw ectoderms, it is possible to manifest advanced equipments and infusing neurons either for complex custodian artisanwork."
+	name = "Contact Gatepyres: Exchange Item"
+	phrase = "Port: ALBI2919, Key:149,234,019-43."
+	desc = "Standing infront of the EOTP, it is possible to manifest advanced equipment and infusing neurons with raw ectoderms by exchanging it with other orders."
 
 /datum/lecture/hearthcore/custodian/offering/buy_item/perform(mob/living/carbon/human/H, obj/item/implant/core_implant/C, targets)
 	var/list/OBJS = get_front(H)
 
 	var/obj/machinery/power/eotp/EOTP = locate(/obj/machinery/power/eotp) in OBJS
 	if(!EOTP)
-		fail("You must be in front of the Embers of Theoretical Philosophy.", H, C)
+		fail("You must be in front of the EOTP otherwise the other orders members cannot identify you.", H, C)
 		return FALSE
 
 	eotp.nano_ui_interact(H)
@@ -98,32 +98,30 @@
 
 /datum/lecture/hearthcore/custodian/offering/call_for_arms
 	name = "Neural Crest Formation"
-	phrase = "Oxidate Lecture: Neural Implementation"
-	desc = "Allow the Ectoderm to formate Radiant Neural Crests, highly migratory and in constant recovery of data, it plays a crucial role on development of peripheral systems for custodians armors, hearthcore upgrade and some weapons. \
-	It increases the EOTP neural reserves and inspire all active knights users." //There will be two ways to adquire neural points. This is the first one I am making while being a novice in coding. -Monochrome
+	phrase = "Radiance, upload the files into the system."
+	desc = "By spending Raw Ectoderm, it allows the formation of Neural Crests. \
+	This provides inspirations to Hearthcore bearers and slightly increases EOTP neural reserves." //There will be two ways to adquire neural points. This is the first one I am making while being a novice in coding. -Monochrome
 	req_offerings = list(/obj/item/stack/custodian_neural/ectoderm = 1)
 	miracles = list(INSPIRATION)
 
 /datum/lecture/hearthcore/custodian/offering/divine_intervention
-	name = "Righteous Intervention"
-	phrase = "Oxidate Lecture: Righteous Intervention"
-	desc = "Make an appeal to the Embers of Theoretical Philosophy by offering two hundred and forty bio-silk to guide its power towards enhancing the abilities of Hearthcore users. \
-	Your offering also increases the EOTP's armaments reserves."
+	name = "Li-Fi Body Training"
+	phrase = "Inject Code: Umbra, keygen:320-te#nt#housand. UnMask IP address."
+	desc = "Appeal to the Embers of Theoretical Philosophy with a donation of 240 bio-silk to boost the abilities of Hearthcore users and EOTP neural reserves."
 	req_offerings = list(/obj/item/stack/material/biopolymer_silk = 240)
 	miracles = list(STAT_BUFF)
 
 /datum/lecture/hearthcore/custodian/offering/holy_guidance
-	name = "Sparking Guidance"
-	phrase = "Oxidate Lecture: Sparking Guidance."
-	desc = "Make an appeal to the Embers of Theoretical Philosophy by offering an oddity and forty bio-silk to guide its power towards enhancing Hearthcore Radiance Mitosis among users. \
-	Your offering also increases the EOTP's armaments reserves."
+	name = "Influence Mitosis"
+	phrase = "Execute Command: Oddity by Mitosis."
+	desc = "Appeal to the Embers of Theoretical Philosophy with a donation of 40 bio-silk and an oddity to boost Hearthcore Radiance Mitosis and EOTP neural reserves."
 	req_offerings = list(/obj/item/oddity = 1, /obj/item/stack/material/biopolymer_silk = 40)
 	miracles = list(ENERGY_REWARD)
 
 /datum/lecture/hearthcore/custodian/offering/alert
 	name = "Discern Malcontents"
-	phrase = "Oxidate Lecture: Discern Malcontents."
+	phrase = "Radiance, Acess Mainframe. Analyze system logs. Gain root privileges."
 	desc = "Make an appeal to the Embers of Theoretical Philosophy by offering one hundred and twenty bio-silk and five carbon fiber to guide its power towards potentially discovering evil creatures. \
-	Your offering also increases the EOTP's armaments reserves."
+	Your offering also increases the EOTP's neural reserves."
 	req_offerings = list(/obj/item/stack/material/biopolymer_silk = 120, /obj/item/stack/material/carbon_fiber = 20)
 	miracles = list(ALERT)

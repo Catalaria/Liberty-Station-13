@@ -6,17 +6,17 @@
 
 //Holds all the proj, guns and spells for the Cataphract. The Cataphract focus on defense and defending others, while making use of radiance to manifest ways to counter enemy's move in the battlefield. They make ~stands~ (automatons) to supply their defensive capacity and area-negating capacity.
 
-/datum/lecture/hearthcore/cataphract/cataphract_personal
-	name = "Energy Personal Shield Prototype"
-	phrase = "Oxidate Lecture: Energy Personal Shield."
-	desc = "This shield is merely a prototype, so it does not work as it should, and will still be changed in the following days by the Custodians."
+/datum/lecture/hearthcore/cataphract/cataphract_personal //Shield that uses the radiance pool. So the user either have to choose to protect itself, or to attack.
+	name = "Radiance Personal Shield"
+	phrase = "Oxidate Lecture: Radiance Personal Shield."
+	desc = "The shield of the Cataphract Knights to protect the custodians in any given situation."
 	power = 40
 
 /datum/lecture/hearthcore/cataphract/cataphract_personal/perform(mob/living/carbon/human/lecturer, obj/item/implant/core_implant/C)
 	var/obj/item/shield_projector/rectangle/cataphract_personal/flame = new /obj/item/shield_projector/rectangle/cataphract_personal(src, lecturer)
 	lecturer.visible_message(
-		"As [lecturer] speaks, their hand now covered with a strange, bluish ionized metal.",
-		"The radiance completely covers one of your hands, seeking to show how unprotected the enemy is"
+		"As [lecturer] speaks, their hand now covered in thick-layered silvery metal.",
+		"The radiance completely covers one of your hands. It constantly draws and releases radiance from your bloodstream."
 		)
 	playsound(usr.loc, pick('sound/effects/sparks1.ogg','sound/effects/sparks2.ogg','sound/effects/sparks3.ogg'), 50, 1, -3)
 	usr.put_in_hands(flame)
@@ -24,8 +24,8 @@
 
 /obj/item/shield_projector/rectangle/cataphract_personal
 	name = "Cataphract personal shield"
-	description_info = "A fast deploying, personal energy shield. Powered by the Hearthcore internal plasma and delivered and manifested by radiance, it ensures the protection of the user when attacked by surprise. \
-	Highly dependant on radiance reserves, but what you can have any time. The shield also cannot block certain effects which take place over an area, such as flashbangs or explosions."
+	description_info = "A swift-deploying personal energy shield, powered by the Hearthcore's internal generator and manifested through radiance, offering protection against surprise attacks.  \
+	Reliant on radiance reserves, but accessible at any time. It is unable to block area effects like flashbangs or explosions."
 	icon_state = "last_shelter"
 	high_color = "#FFFFFF"
 	shield_health = 2
@@ -84,11 +84,16 @@
 /datum/lecture/hearthcore/cataphract/purification
 	name = "Genuine Purification"
 	phrase = "Oxidate Lecture: Genuine Purification."
-	desc = "By allowing the radiance to spread towards the surface of the hand and sacrifice itself as it ignites, it allows the Knight to use the leftover radiance like oil and spread it in the battlefield in a flamethrower."
+	desc = "By spreading radiance to the hand's surface and igniting it, the Knight can use the residual energy as a flamethrower on the battlefield."
 	power = 90
 
 /datum/lecture/hearthcore/cataphract/purification/perform(mob/living/carbon/human/lecturer, obj/item/implant/core_implant/C)
 	var/obj/item/gun/custodian_fireball/purification/flame = new /obj/item/gun/custodian_fireball/purification(src, lecturer)
+	// Don't spawn the item in question if our hands aren't empty, to prevent it from despawning.
+	if(lecturer.hands_are_full())
+		to_chat(lecturer, "<span class='warning'>You need your hands free to perform this ritual!</span>")
+		return FALSE
+
 	lecturer.visible_message(
 		"As [lecturer] speaks, their hand now covered with a strange, silvery ionized metal.",
 		"The radiance completely covers one of your hands, willing to sacrifice itself to punish others as you see fit."
@@ -98,9 +103,8 @@
 	return TRUE
 
 /obj/item/gun/custodian_fireball/purification
-	name = "Genuine Purification Prototype"
-	desc = "The beloved, benevolent purification of the body, to allow these maintenance pests and mutants to finally rest in piece. \
-	However, it is still a prototype. After spending the radiance, it does not get back to your bloodstream. Somehow, the radiance becomes alveolar cells and just remains there."
+	name = "Genuine Purification"
+	desc = "The beloved, benevolent purification of the body, to allow these maintenance pests and mutants to finally rest in piece."
 	icon = 'icons/obj/guns/projectile/blazelance.dmi'
 	icon_state = "blazelance"
 	item_state = "blazelance"
@@ -144,63 +148,34 @@
 	power = 35
 
 /datum/lecture/hearthcore/cataphract/dummy/perform(mob/living/carbon/human/lecturer, obj/item/implant/core_implant/C)
-	var/rob = lecturer.stats.getStat(STAT_ROB)
-	if(rob > 30)
+	var/rob = lecturer.stats.getStat(STAT_WIL)
+	if(rob > 25)
 		to_chat(lecturer, "<span class='info'>You quickly deploy an radiance dummy from your bloodstream. What a sight!.</span>")
 		new /mob/living/carbon/superior_animal/robot/custodians/faux_dummy(lecturer.loc)
 		return TRUE
 	to_chat(lecturer, "<span class='info'>It feels the same as adding a new color to the light spectrum. Your body does not have the robustness to train your silvery neurons.</span>")
 	return FALSE//Not enough robustness to use this lecture.
 
-
-
-/datum/lecture/hearthcore/cataphract/dummy/perform(mob/living/carbon/human/lecturer, obj/item/implant/core_implant/C)
-	var/rob = lecturer.stats.getStat(STAT_ROB)
-	if(rob > 30)
-		to_chat(lecturer, "<span class='info'>You quickly deploy an radiance dummy from your bloodstream. What a sight!.</span>")
-		new /mob/living/carbon/superior_animal/robot/custodians/faux_dummy(lecturer.loc)
-		return TRUE
-	to_chat(lecturer, "<span class='info'>It feels the same as adding a new color to the light spectrum. Your body does not have the robustness to train your silvery neurons.</span>")
-	return FALSE//Not enough robustness to use this lecture.
-
-
-/datum/lecture/hearthcore/cataphract/stonemason
-	name = "Assemble: The Stone Mason Prototype"
-	phrase = "Radiance, hear me. Assemble the Stone Mason."
-	desc = "Assemble with your own radiance a strong, floating automaton on top of the user's presence. Sadly, this area-denier is an non-functional prototype, so avoid using it."
+/datum/lecture/hearthcore/cataphract/flamecestus
+	name = "Produce Flame Cestus"
+	phrase = "Oxidate Lecture: Produce Flame Cestus."
+	desc = "By performing deionisation of the silver in the hands with a hollow pathway for the radiance, it is possible to make Flame Cestus. Each punch covers the enemy in fiery radiance, igniting them."
+	power = 100
 	cooldown = TRUE
-	cooldown_time = 30 MINUTES
-	power = 75
+	cooldown_time = 4 HOURS
+	cooldown_category = "flamecestus"
 
-/*
-/obj/machinery/power/stonemason
-	name = "Bonfire Stonemason"
-	desc = "The Stonemason."
-	icon = 'icons/obj/custodian_structures.dmi'
-	icon_state = "torchbearer"
+/datum/lecture/hearthcore/cataphract/flamecestus/perform(mob/living/carbon/human/lecturer, obj/item/implant/core_implant/C)
+	var/obj/item/clothing/gloves/dusters/flamecestus/flame = new /obj/item/clothing/gloves/dusters/flamecestus(src, lecturer)
+	// Don't spawn the item in question if our hands aren't empty, to prevent it from despawning.
+	if(lecturer.hands_are_full())
+		to_chat(lecturer, "<span class='warning'>You need your hands free to perform this ritual!</span>")
+		return FALSE
 
-	density = FALSE
-	anchored = FALSE
-	layer = 2.8
-
-	use_power = IDLE_POWER_USE
-	idle_power_usage = 0
-	active_power_usage = 0
-	var/overrideFaithfulCheck = FALSE
-	var/active = FALSE
-	var/area_radius = 7
-	var/damage = 20
-	var/max_targets = 5
-	var/nt_buff_power = 5
-	var/nt_buff_cd = 3
-
-	var/static/stat_buff
-	var/list/currently_affected = list()
-	var/force_active = 0
-
-	var/ticks_to_next_process = 3
-	var/delta_y = target.y - moving.y
-	var/delta_x = target.x - moving.x
-
-	/datum/lecture/hearthcore/cataphract/dummy/perform(mob/living/carbon/human/lecturer, obj/item/implant/core_implant/C)
-	*/
+	lecturer.visible_message(
+		"As [lecturer] chants, a flame cestus materializes from their bloodstream, covering [lecturer.get_gender() == MALE ? "his" : lecturer.get_gender() == FEMALE ? "her" : "their"] hands in fiery layers of silver.",
+		"The radiance sacrificed itself forging a new cestus for your use, materializing unto your hands. Your hearthcore is tired. You cannot do this lecture again any time soon."
+		)
+	playsound(usr.loc, pick('sound/effects/sparks1.ogg','sound/effects/sparks2.ogg','sound/effects/sparks3.ogg'), 50, 1, -3)
+	usr.put_in_hands(flame)
+	return TRUE

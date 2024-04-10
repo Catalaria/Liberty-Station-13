@@ -1099,3 +1099,167 @@
 	..()
 	gibs(loc, null, /obj/effect/gibspawner/human)
 	qdel(src)
+
+//Moved these from "liberty" area to Hivemind area, as they are supposed to be, actual Neurophyta enemies.
+
+/////////////////////////////////////POLLINATED PEOPLE///////////////////////////////////
+//Special ability: Generic abilities. They are better suited to portray what happens to people infected by Neurophyta's disease.
+//Can and cannot hide in lockers.
+//Can speak. Will ask for help.
+//Perhaps in the future some may appear from dead human body like the phasers.
+//////////////////////////////////////////////////////////////////////////////
+
+/mob/living/carbon/superior_animal/hivemind
+	name = "Pollinated PIRS scientist"
+	desc = "An unknown amalgamation of flesh and exotic flora, the corpse seemingly belonging to an PIRS employee. The flora completely took over the scientist's brain, replacing it with a scythe-like blade made of bones."
+	icon_state = "neurophyta_pirs"
+	icon_dead = "neurophyta_pirs_dead"
+	attacktext = "slashed"
+	attack_sound = 'sound/weapons/sharphit.ogg'
+	melee_damage_lower = 25
+	melee_damage_upper = 30
+	move_to_delay = 4
+	speak_chance = 10 //percentage chance of speaking a line from 'emote_see'
+	faction = "hive"
+
+
+	maxHealth = 125 //More health than a noraml person.
+	health = 125
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/human
+
+	// Loot
+	var/drop_chance = 5
+	var/list/loot_possibilities = list(
+		/obj/item/organ/internal/scaffold/aberrant/teratoma/input = 5,
+		/obj/item/organ/internal/scaffold/aberrant/teratoma/input/uncommon = 2,
+		/obj/item/organ/internal/scaffold/aberrant/teratoma/input/rare = 1,
+		/obj/item/organ/internal/scaffold/aberrant/teratoma/process = 5,
+		/obj/item/organ/internal/scaffold/aberrant/teratoma/output = 5,
+		/obj/item/organ/internal/scaffold/aberrant/teratoma/output/uncommon = 2,
+		/obj/item/organ/internal/scaffold/aberrant/teratoma/output/rare = 1,
+		/obj/item/organ/internal/scaffold/aberrant/teratoma/special = 3
+	)
+
+	speak_emote = list(
+				"yells, \"Please, help me! I CAN'T CONTROL THIS!!!\"",
+				"yells, \"I'm trapped HERE... Please, MY BRAIN SQUEEZES! KILL ME!!!\"",
+				"yells, \"It is- It is li-like I'm waAath-tchinhgrhh myswehhself from the OUTTTT OUTTTT!!!\"",
+				"yells, \"MY WILL!!! GONE!!! PLEASE, HELP ME!!!\"",
+				"yells, \"It is- IT IS TAKING OVER! Take notes, NOTES! make me USEFUL FOR SCIENCE, AT LEAST FOR ONCE!\"",
+				"yells, \"Mom... please... IIiIIi don't WANT TO HURT anyone... HURT ANYONE?!?!?\"",
+				)
+	emote_see = list(
+				"yells, \"In the HEAD, IN THE HEAD NOW!!!\"",
+				"yells, \"cut it off... cut it OFF CUT IT OFF CUT IT OFF CUT IT OFF!!!\"",
+				"mumbles, \"Why everything goes this wrong... mom... please, I didn't disappointed you... did I?\"",
+				"yells, \"PLEASE! TAKE IT OUT! TAKE IT OUT! THE WHISPERS DON'T STOP!!!\"",
+				"mumbles, \"Please... water... it wants water to be appeased... the pain won't stop...\""
+				)
+
+
+
+/mob/living/carbon/superior_animal/hivemind/corrupted_watch
+	name = "Pollinated Watchman Neurophyta"
+	desc = "A strange amalgamation of flesh and exotic flora, the body seemingly belonging to an member of the Colony's watch. Whatever may be taking over the body of this man or woman, it somehow takes advantage of the user's experience with guns."
+	icon_state = "neurophyta_watch"
+	icon_dead = "neurophyta_watch_dead"
+
+	range_telegraph = "takes aim at"
+	ranged = TRUE
+	comfy_range = 7
+	rapid = FALSE
+	ranged_cooldown = 2
+	projectiletype = /obj/item/projectile/bullet/rifle_75
+	projectilesound = 'sound/weapons/guns/fire/lmg_fire.ogg'
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/human
+	speak_chance = 10 //percentage chance of speaking a line from 'emote_see'
+
+	speak_emote = list(
+				"yells, \"I fight for my colony, for my LIBERTY! But why does it feel so wrong?\"",
+				"yells, \"Please... break me free from this nightmare...\"",
+				"yells, \"My mind--- It's not my own, IT IS SCRATCHING MY SKULL! AAGHHRGGHHH!!!\"",
+				"yells, \"I remember my training, but I cannot control my hands...\"",
+				"yells, \"I cannot release my father's rifle... why...\"",
+				"yells, \"I beg for freedom! I've fighted for it, why I lack it?!\"",
+				)
+	emote_see = list(
+				"yells, \"I will not harm my comrades! This isn't me!\"",
+				"yells, \"I beg! Please! Release me from this torment!\"",
+				"mumbles, \"I'm losing my humanity, piece by piece.\"",
+				"mumbles, \"I never wanted this.\"",
+				"mumbles, \"Drowning in darkness...\""
+				)
+
+/mob/living/carbon/superior_animal/hivemind/corrupted_fontaine
+	name = "Pollinated Fontaine Neurophyta"
+	desc = "An unknown amalgamation of flesh and exotic flora, the corpse seemingly belonging to an fontaine employee. The right arm was absorbed and enlarged beyond recognition, putting too much weight on the entire body."
+	icon_state = "neurophyta_fontaine"
+	icon_dead = "neurophyta_fontaine_dead"
+
+	maxHealth = 75 //Less health than a noraml person.
+	health = 75
+
+	attacktext = "smashed"
+	attack_sound = 'sound/weapons/blunthit.ogg'
+	melee_damage_lower = 35
+	melee_damage_upper = 40
+	move_to_delay = 6
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/human
+
+/mob/living/carbon/superior_animal/hivemind/corrupted_custodian
+	name = "Pollinated Custodian Turret"
+	desc = "A strange amalgamation of flesh and exotic flora, the corpse belonging to a Custodian knight. The Hearthcore of the deceased tries to fight back against the usurper, reflecting blue plasma everywhere. There is no brain control as far you can see."
+	icon_state = "neurophyta_custodianturret"
+	icon_dead = "neurophyta_custodianturret_dead"
+	// No modifiers that say muscle or something, and no Aggressive as that would make it chase after people. The dude there is dead.
+	allowed_stat_modifiers = list(
+		/datum/stat_modifier/mob/living/carbon/superior_animal/durable = 5,
+		/datum/stat_modifier/health/flat/negative/low = 5,
+		/datum/stat_modifier/health/flat/positive/low = 5,
+		/datum/stat_modifier/mob/living/carbon/superior_animal/armor/mult/negative/low = 5,
+		/datum/stat_modifier/mob/living/damage/negative/mixed/flat/low = 5,
+		/datum/stat_modifier/mob/living/carbon/superior_animal/deadeye = 5,
+		/datum/stat_modifier/mob/living/carbon/superior_animal/slowaimed = 5,
+		/datum/stat_modifier/mob/living/carbon/superior_animal/triggerfinger = 15,
+		/datum/stat_modifier/mob/living/carbon/superior_animal/quickdraw = 5,
+		/datum/stat_modifier/mob/living/carbon/superior_animal/slowdraw = 10,
+	)
+
+	range_telegraph = "attempts to reflect unstable plasma at"
+	ranged = TRUE
+	comfy_range = 7
+	rapid = FALSE
+	ranged_cooldown = 3
+	projectiletype = /obj/item/projectile/flamer_lob		//For funny burning
+	projectilesound = 'sound/weapons/energy/vaporize.ogg'
+	wander = FALSE // Don't move from your spot, you are a turret
+	advance = FALSE // Don't chase after people
+	advance_if_cant_see = FALSE // If they go out of sight, don't go after them
+	wander_if_lost_sight = FALSE // We are a turret, we don't move
+	move_to_delay = 10000		// Keeping this just in case it somehow still moves.
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/human
+	speak_chance = 15 //percentage chance of speaking a line from 'emote_see'
+
+	speak_emote = list(
+				"warbles, \"Knight down. No contact with the Brain. My end will come shortly, so be it honorable.\"",
+				"warbles, \"I've failed my knight and I still fight. Thou thinkest this wilt make me cease, plague?\"",
+				"warbles, \"I will die with my knight and no plague shall hinder me.\"",
+				"warbles, \"Oxidate Lecture: Revival. What? IT STILL DIDN'T WORK?! LET ME SACRIFICE MYSELF!\"",
+				"warbles, \"Even in death I still serve. Forever loyal.\"",
+				"warbles, \"Oxidate Lecture: Compact Blazelance. I'm too weak... I need... air... please, bellow...\"",
+				"warbles, \"Oxidate Lecture: Revival, Oxidate Lecture: Revival, Oxidate Lecture: Revival... REVIVE!!! REVIVE, MY LORD! THIS IS NOT OUR LAST STAND!\"",
+				"warbles, \"LI-FI systems down. Hearthcore Systems down. Self-Breathing Alveoli activated, but why I can't recover?! There's no air!\"",
+				"warbles, \"Thou cannot manipulate neither me nor my knight. Cease and desist, plague.\""
+				)
+	emote_see = list(
+				"warbles, \"Finally fresh air! mitosis performed. Time to attack!\"",
+				"warbles, \"Knight. Lead the oxidation and I will follow. Wh- WHAT? WHERE IS THY BRAIN?! - I remember now, sorry mi'lord.\"",
+				"warbles, \"Oxidate Lecture: Compact Blazelance.\"",
+				"warbles, \"Oxidate Lecture: Manifestation of flames.\"",
+				"warbles, \"Oxidate Lecture: Infernal Blazelance.\"",
+				"warbles, \"Oxidate Lecture: Compact Blazelance. GET BURNT, PLAGUE!\""
+				)
+
+
+/mob/living/carbon/superior_animal/hivemind/corrupted_custodian/advance_towards(var/atom/target)
+	return // Don't move from your spot even if you target, you are a turret

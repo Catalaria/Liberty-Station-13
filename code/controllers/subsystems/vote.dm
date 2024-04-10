@@ -96,7 +96,7 @@ SUBSYSTEM_DEF(vote)
 
 	if(active_vote)
 		data += "<h2>Vote: '[active_vote.question]'</h2>"
-		data += "Time Left: [active_vote.time - get_vote_time()] s<br>"
+		data += "Time Left: [active_vote.time - get_vote_time()] s<br>" //Please someone REMOVE this buggy thing.
 		data += "Started by: <b>[active_vote.initiator]</b><hr>"
 
 		if(active_vote.multiple_votes)

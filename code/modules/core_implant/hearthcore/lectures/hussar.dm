@@ -96,6 +96,7 @@ datum/lecture/hearthcore/hussar/skirmish/perform(mob/living/carbon/human/lecture
 	var/changes_projectile = TRUE // Used to delete when dropped
 	serial_shown = FALSE
 	safety = FALSE
+	knightly_check = TRUE
 
 /obj/item/gun/misery/New(var/loc, var/mob/living/carbon/lecturer)
 	..()
@@ -130,52 +131,92 @@ datum/lecture/hearthcore/hussar/skirmish/perform(mob/living/carbon/human/lecture
 		qdel(src)
 		return
 
-/datum/lecture/hearthcore/hussar/radiantbow
-	name = "Radiance Bow Prototype"
-	phrase = "Radiance, assemble the Radiance Bow"
-	desc = "A sniper-bow prototype. Meant to be an bow that produces arrows from the knight's own radiance, however, the forgemasters are still working on this."
-	power = 100
+/datum/lecture/hearthcore/hussar/stealth //Experimental
+	name = "Radiant Mirror"
+	phrase = "Oxidate Lecture: Radiant Mirror."
+	desc = "Allow your radiance in a polished state to reach your skin and start reflecting the light on the other side of your body. Functional against humans and alike. \
+	It is not perfect, but still effective for stealth operations. Does not work against creatures that relies on body warmth or smells to notice you."
 	cooldown = TRUE
-	cooldown_time = 4 HOURS
-	cooldown_category = "radiance_bow"
+	cooldown_time = 5 MINUTES
+	cooldown_category = "convalescence"
+	effect_time = 1 MINUTES
+	power = 90
 
-/datum/lecture/hearthcore/hussar/radiantbow/perform(mob/living/carbon/human/lecturer, obj/item/implant/core_implant/C)
-	var/rob = lecturer.stats.getStat(STAT_ROB)
-	if(rob >= 40) //You need 40 robustness at minimum to use this lecture
-		var/flame = new /obj/item/gun/projectile/bow/radiantbow(lecturer)
-		if(lecturer.put_in_active_hand(flame))
-			lecturer.visible_message(
-			"As [lecturer] chants, silvery nanites floods their veins, escaping and forging a silvery bow on [lecturer.get_gender() == MALE ? "his" : lecturer.get_gender() == FEMALE ? "her" : "their"] hands.",
-			"The radiance sacrificed itself forging a new bow for your use, materializing unto your hands. Your hearthcore is tired. You cannot do this lecture again any time soon."
-			)
-			return TRUE
-		qdel(flame)
-		to_chat(lecturer, "<span class='info'>You need your active hand to be free!.</span>")
-		return FALSE
-	to_chat(lecturer, "<span class='info'>It feels the same as adding a new color to the light spectrum. Your body does not have the robustness to train your silvery neurons, but this time you think this is for the best.</span>")
-	return FALSE
+/datum/lecture/hearthcore/hussar/stealth/perform(mob/living/carbon/human/user, obj/item/implant/core_implant/C)
+	user.invisibility = INVISIBILITY_WEAK
+	user.alpha = 75
+	user.visible_message(SPAN_DANGER("[user.name] becomes reasonably transparent."))
+	anim(get_turf(user), user,'icons/mob/mob.dmi',,"cloak",,user.dir)
+	set_personal_cooldown(user)
+	addtimer(CALLBACK(src, .proc/discard_effect, user), src.effect_time)
+	return TRUE
 
+/datum/lecture/hearthcore/hussar/stealth/proc/discard_effect(mob/living/carbon/human/user)
+	if(!user)
+		return
+	user.invisibility = INVISIBILITY_NONE
+	user.alpha = 255
 
-/datum/lecture/hearthcore/hussar/flamecestus
-	name = "Produce Flame Cestus"
-	phrase = "Oxidate Lecture: Produce Flame Cestus."
-	desc = "By performing deionisation of the silver in the hands with a hollow pathway for the radiance, it is possible to make Flame Cestus. Each punch covers the enemy in fiery radiance, igniting them."
+//forget the bow. Make a sniper lecture here that only ignites and deal low damage.
+
+/datum/lecture/hearthcore/hussar/fblazelance
+	name = "Focused Blazelance"
+	phrase = "Oxidate Lecture: Focused Blazelance."
+	desc = "Focus the blazelance in two hands at the same time. This will allow better concentration due to the same focus on two lenses."
 	power = 100
-	cooldown = TRUE
-	cooldown_time = 4 HOURS
-	cooldown_category = "flamecestus"
 
-/datum/lecture/hearthcore/hussar/flamecestus/perform(mob/living/carbon/human/lecturer, obj/item/implant/core_implant/C)
-	var/rob = lecturer.stats.getStat(STAT_ROB)
-	if(rob >= 30) //You need 30 robustness at minimum to use this lecture
-		var/flame = new /obj/item/clothing/gloves/dusters/flamecestus(src, lecturer)
-		usr.put_in_hands(flame)
-		lecturer.visible_message(
-		"As [lecturer] chants, a flame cestus materializes from their bloodstream, covering [lecturer.get_gender() == MALE ? "his" : lecturer.get_gender() == FEMALE ? "her" : "their"] hands in fiery layers of silver.",
-		"The radiance sacrificed itself forging a new cestus for your use, materializing unto your hands. Your hearthcore is tired. You cannot do this lecture again any time soon."
+/datum/lecture/hearthcore/hussar/fblazelance/perform(mob/living/carbon/human/lecturer, obj/item/implant/core_implant/C)
+	var/obj/item/gun/tblazelance/flame = new /obj/item/gun/blazelancesniper(src, lecturer)
+	lecturer.visible_message(
+		"As [lecturer] speaks, their hand now covered in bluish ionized metal.",
+		"The radiance fully envelops your hand, soon to highlight the vulnerability of your enemy"
 		)
-		return TRUE
-	else
-		to_chat(lecturer, "<span class='info'>It feels the same as adding a new color to the light spectrum. Your body does not have the robustness to train your silvery neurons.</span>")
-		return FALSE
+	playsound(usr.loc, pick('sound/effects/sparks1.ogg','sound/effects/sparks2.ogg','sound/effects/sparks3.ogg'), 50, 1, -3)
+	usr.put_in_hands(flame)
+	return TRUE
 
+/obj/item/gun/blazelancesniper // I hate myself
+	name = "Double lense blazelance"
+	desc = "This one was made because Monochrome9090 is a retard."
+	icon = 'icons/obj/guns/projectile/blazelance.dmi'
+	icon_state = "blazelance"
+	item_state = "blazelance"
+	origin_tech = list()
+	fire_sound = 'sound/effects/magic/fireball.ogg' // Proper fireball firing sound courtesy of tg
+	fire_sound_text = "fireball"
+	max_upgrades = 0
+	slot_flags = null
+	w_class = ITEM_SIZE_HUGE
+	damtype = HALLOSS
+	zoom_factors = list(1,2)
+	var/projectile_type = /obj/item/projectile/beam/fblazelance // What does it shoot
+	var/use_amount = 1 // How many times can it be used
+	var/mob/living/carbon/holder  // Used to delete when dropped
+	var/changes_projectile = TRUE // Used to delete when dropped
+	init_firemodes = list(
+		WEAPON_CHARGE //Need help to make this weapon only shoot when fully charged.
+	)
+	twohanded = TRUE // because you are using double focuses for the lenses, you must use both hands like a Kamehameha
+	serial_shown = FALSE
+	safety = FALSE
+	knightly_check = TRUE
+
+/obj/item/gun/blazelancesniper/New(var/loc, var/mob/living/carbon/lecturer)
+	..()
+	holder = lecturer
+	START_PROCESSING(SSobj, src)
+
+/obj/item/gun/blazelancesniper/consume_next_projectile()
+	if(!ispath(projectile_type)) // Do we actually shoot something?
+		return null
+	if(use_amount <= 0) //Are we out of charges?
+		return null
+	use_amount -= 1
+	return new projectile_type(src)
+
+/obj/item/gun/blazelancesniper/Process()
+	if(loc != holder || (use_amount <= 0)) // We're no longer in the lecturer's hand or we're out of charges.
+		visible_message("[src] is far too weak to stay outside a body.")
+		STOP_PROCESSING(SSobj, src)
+		qdel(src)
+		return

@@ -19,6 +19,7 @@
 		)
 	serial_type = "INDEX"
 	serial_shown = FALSE
+	knightly_check = TRUE
 
 /obj/item/gun/energy/floragun/si
 	name = "PI Prototype: floral somatoray"
