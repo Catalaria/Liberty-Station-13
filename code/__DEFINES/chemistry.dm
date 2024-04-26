@@ -42,10 +42,11 @@
 #define IS_SYNTHETIC 3
 #define IS_SLIME 4
 #define IS_MARQUA 5
-#define IS_KRIOSAN 6
+#define IS_LUPINARIS 6
 #define IS_AKULA 7
-#define IS_CINDERITE 8
-#define IS_OPIFEX 9
+#define IS_TREE 8
+#define IS_CINDERITE 9
+#define IS_OPIFEX 10
 
 #define CE_STABLE			"stable" // Stabilizes the body in many things, preventing death in many scenarios
 #define CE_ANTIBIOTIC		"antibiotic" // Halts the stages of infection and decreases germ count, eventually eliminating infections

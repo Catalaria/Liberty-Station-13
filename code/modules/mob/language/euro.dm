@@ -9,7 +9,7 @@
 	partial_understanding = list(
 		LANGUAGE_ROMANA = 20,
 		LANGUAGE_COMMON = 25,
-		LANGUAGE_KRIOSAN = 75
+		LANGUAGE_LUPINARIS = 75
 	)
 	space_chance = 80
 	has_written_form = TRUE

@@ -297,7 +297,7 @@
 		name = "Heterochromia"
 		icon_state = "heterochromia"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(SPECIES_HUMAN, SPECIES_UNATHI, SPECIES_TAJ, SPECIES_NEVREAN, SPECIES_AKULA, SPECIES_ZORREN_FLAT, SPECIES_ZORREN_HIGH, SPECIES_VULPKANIN, SPECIES_VASILISSAN, SPECIES_RAPALA, SPECIES_ALRAUNE) //This lets all races use the default hairstyles.
+		species_allowed = list(SPECIES_HUMAN, SPECIES_UNATHI, SPECIES_TAJ, SPECIES_AKULA) //This lets all races use the default hairstyles.
 
 	otie_face
 		name = "Hound Face"

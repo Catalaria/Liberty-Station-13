@@ -19,7 +19,7 @@
 		) // Not 100% sure if we are making Tribals unknighteables. Will need to loretalk with Gundam or Ezoken later.
 	allowed_depts = CHURCH
 	allow_modifications = TRUE
-	restricted_to_species = list(FORM_HUMAN, FORM_SABLEKYNE, FORM_KRIOSAN, FORM_AKULA, FORM_MARQUA, FORM_NARAMAD, FORM_OPIFEX, FORM_CINDAR)
+	restricted_to_species = list(FORM_HUMAN, FORM_SABLEKYNE, FORM_BRONZECREST, FORM_IRONCREST, FORM_GOLDENCREST, FORM_KRIOSAN, FORM_LHYBRID, FORM_AKULA, FORM_MARQUA, FORM_NARAMAD, FORM_CINDAR, FORM_PLAINSLAND, FORM_MOUNTAINLANDS)
 /*
 /datum/category_item/setup_option/core_implant/psionic_tumor
 	name = "Psionic Organ"

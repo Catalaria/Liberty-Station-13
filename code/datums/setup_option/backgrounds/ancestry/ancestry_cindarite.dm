@@ -5,7 +5,7 @@
 			After all, even a single breach could spell the end for the dwellers despite their in-born resistance to their toxic homeworld. Such a confined life style though spells poorly for \
 			their physical health, so biological maintenance is just as important as physical."
 
-	restricted_to_species = list(FORM_CINDAR)
+	restricted_to_species = list(FORM_CINDAR, FORM_PLAINSLAND, FORM_MOUNTAINLANDS)
 
 	stat_modifiers = list(STAT_BIO = 10)
 
@@ -15,6 +15,6 @@
 			Spacers often take work as engineers, merchants, and sometimes pirates as jobs are rarely ever steady. This broadens the already wide range of skills that most cindarites have, but \
 			most of this knowledge is learned practically, making them poor studies on more advanced careers that can't be as easily learned from a hands on approach."
 
-	restricted_to_species = list(FORM_CINDAR)
+	restricted_to_species = list(FORM_CINDAR, FORM_PLAINSLAND, FORM_MOUNTAINLANDS)
 
 	stat_modifiers = list(STAT_MEC = 10)

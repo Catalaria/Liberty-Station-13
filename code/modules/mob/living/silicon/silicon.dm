@@ -49,7 +49,7 @@
 	add_language(LANGUAGE_CYRILLIC)
 	add_language(LANGUAGE_COALITION)
 	add_language(LANGUAGE_OPIFEXEE)
-	add_language(LANGUAGE_KRIOSAN)
+	add_language(LANGUAGE_LUPINARIS)
 	add_language(LANGUAGE_AKULA)
 	add_language(LANGUAGE_MARQUA)
 	add_language(LANGUAGE_CINDERITE)

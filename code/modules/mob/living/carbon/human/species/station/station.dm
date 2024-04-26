@@ -128,7 +128,8 @@
 		"You shiver suddenly.",
 		"Your chilly flesh stands out in goosebumps."
 		)
-	spawn_flags = CAN_JOIN
+
+	spawn_flags = IS_WHITELISTED		//This species is not supposed to be playable. Acts as a baseline for the other Sable species.
 
 	stat_modifiers = list(
 		STAT_ROB = 5,
@@ -163,73 +164,29 @@
 /datum/species/sablekyne/get_bodytype()
 	return "Sablekyne"
 
-/datum/species/marqua
-	name = "Mar'Qua"
-	name_plural = "Mar'quas"
-	default_form = FORM_MARQUA
+/datum/species/sablekyne/bronzecrest
+	name = "Bronzecrest Sablekyne"
+	name_plural = "Bronzecrest Sablekynes"
+	default_form = FORM_BRONZECREST
+	spawn_flags = CAN_JOIN
+
+/datum/species/sablekyne/ironcrest
+	name = "Ironcrest Sablekyne"
+	name_plural = "Ironcrest Sablekynes"
+	default_form = FORM_IRONCREST
+	spawn_flags = CAN_JOIN
+
+/datum/species/sablekyne/goldcrest
+	name = "Goldencrest Sablekyne"
+	name_plural = "Goldencrest Sablekynes"
+	default_form = FORM_GOLDENCREST
+	spawn_flags = CAN_JOIN
+
+//Lupinaris Species - (Kriosans, Narmads, Hybrids)
+/datum/species/lupinaris	//Master-path for species. See subpaths below.
+	name = "Lupinaris"
+	name_plural = "Lupinarians"
 	obligate_form = TRUE
-	reagent_tag = IS_MARQUA
-	unarmed_types = list(/datum/unarmed_attack/punch, /datum/unarmed_attack/stomp,  /datum/unarmed_attack/kick)
-	darksight = 4
-	num_alternate_languages = 2
-	name_language = null
-	min_age = 18
-	max_age = 160
-	blurb = "no."
-	hunger_factor = 0.5
-	taste_sensitivity = TASTE_HYPERSENSITIVE
-
-	dark_color = "#afeeee"
-	light_color = "#20b2aa"
-
-	cold_level_1 = 230 //Default 270
-	cold_level_2 = 210 //Default 230
-	cold_level_3 = 190  //Default 200
-
-	cold_discomfort_level = 230
-	list/cold_discomfort_strings = list(
-		"You feel chilly.",
-		"You shiver suddenly.",
-		"Your chilly flesh stands out in goosebumps."
-		)
-	spawn_flags = IS_RESTRICTED
-
-	stat_modifiers = list(
-		STAT_BIO = 10,
-		STAT_COG = 10,
-		STAT_MEC = 10
-	)
-
-	has_process = list(    // which required-organ checks are conducted.
-		OP_HEART        = /obj/item/organ/internal/heart,
-		OP_LUNGS        = /obj/item/organ/internal/lungs,
-		OP_STOMACH      = /obj/item/organ/internal/stomach,
-		OP_LIVER        = /obj/item/organ/internal/liver,
-		OP_KIDNEY_LEFT  = /obj/item/organ/internal/kidney,
-		OP_KIDNEY_RIGHT = /obj/item/organ/internal/kidney,
-		BP_BRAIN        = /obj/item/organ/internal/brain,
-		OP_APPENDIX     = /obj/item/organ/internal/appendix,
-		OP_EYES         = /obj/item/organ/internal/eyes/marqua
-	)
-
-	permitted_ears  = list()
-	permitted_tail  = list()
-	permitted_wings = list()
-
-	perks = list(PERK_SUDDENBRILLIANCE, PERK_INSPIRED, PERK_ALIEN_NERVES)
-
-/datum/species/marqua/get_bodytype()
-	return "Mar'Qua"
-
-
-
-
-/datum/species/kriosan
-	name = "Kriosan"
-	name_plural = "Kriosans"
-	default_form = FORM_KRIOSAN
-	obligate_form = TRUE
-	reagent_tag = IS_KRIOSAN
 	unarmed_types = list(/datum/unarmed_attack/needle, /datum/unarmed_attack/punch, /datum/unarmed_attack/stomp,  /datum/unarmed_attack/kick, /datum/unarmed_attack/bite)
 	darksight = 4 //enhanced eyes dosnt mean perfected
 	num_alternate_languages = 2
@@ -242,6 +199,8 @@
 	radiation_mod = 0.5
 	total_health = 130
 	siemens_coefficient = 2
+
+	reagent_tag = IS_LUPINARIS
 
 	dark_color = "#ff0000"
 	light_color = "#990000"
@@ -257,7 +216,7 @@
 		"Your chilly flesh stands out in goosebumps."
 		)
 
-	spawn_flags = CAN_JOIN
+	spawn_flags = IS_WHITELISTED		//Disables the race, basically. Sub-races are playable instead.
 
 	stat_modifiers = list(
 		STAT_TGH = 5,
@@ -294,8 +253,90 @@
 
 	perks = list(PERK_ENHANCEDSENSES)
 
-/datum/species/kriosan/get_bodytype()
+/datum/species/lupinaris/kriosan
+	name = "Kriosan"
+	name_plural = "Kriosans"
+	default_form = FORM_KRIOSAN
+	spawn_flags = CAN_JOIN
+
+/datum/species/lupinaris/kriosan/get_bodytype()
 	return "Kriosan"
+
+/datum/species/lupinaris/naramad
+	name = "Naramad"
+	name_plural = "Naramadi"
+	default_form = FORM_NARAMAD
+	spawn_flags = CAN_JOIN
+
+/datum/species/lupinaris/naramad/get_bodytype()
+	return "Naramad"
+
+/datum/species/lupinaris/hybrid
+	name = "Hybrid Lupinaris"
+	name_plural = "Hybrid Lupinaris"
+	default_form = FORM_LHYBRID
+	spawn_flags = CAN_JOIN
+
+/datum/species/lupinaris/hybrid/get_bodytype()
+	return "Hybrid"
+
+/datum/species/marqua
+	name = "Mar'Qua"
+	name_plural = "Mar'quas"
+	default_form = FORM_MARQUA
+	obligate_form = TRUE
+	reagent_tag = IS_MARQUA
+	unarmed_types = list(/datum/unarmed_attack/punch, /datum/unarmed_attack/stomp,  /datum/unarmed_attack/kick)
+	darksight = 4
+	num_alternate_languages = 2
+	name_language = null
+	min_age = 18
+	max_age = 160
+	blurb = "no."
+	hunger_factor = 0.5
+	taste_sensitivity = TASTE_HYPERSENSITIVE
+
+	dark_color = "#afeeee"
+	light_color = "#20b2aa"
+
+	cold_level_1 = 230 //Default 270
+	cold_level_2 = 210 //Default 230
+	cold_level_3 = 190  //Default 200
+
+	cold_discomfort_level = 230
+	list/cold_discomfort_strings = list(
+		"You feel chilly.",
+		"You shiver suddenly.",
+		"Your chilly flesh stands out in goosebumps."
+		)
+	spawn_flags = CAN_JOIN
+
+	stat_modifiers = list(
+		STAT_BIO = 10,
+		STAT_COG = 10,
+		STAT_MEC = 10
+	)
+
+	has_process = list(    // which required-organ checks are conducted.
+		OP_HEART        = /obj/item/organ/internal/heart,
+		OP_LUNGS        = /obj/item/organ/internal/lungs,
+		OP_STOMACH      = /obj/item/organ/internal/stomach,
+		OP_LIVER        = /obj/item/organ/internal/liver,
+		OP_KIDNEY_LEFT  = /obj/item/organ/internal/kidney,
+		OP_KIDNEY_RIGHT = /obj/item/organ/internal/kidney,
+		BP_BRAIN        = /obj/item/organ/internal/brain,
+		OP_APPENDIX     = /obj/item/organ/internal/appendix,
+		OP_EYES         = /obj/item/organ/internal/eyes/marqua
+	)
+
+	permitted_ears  = list()
+	permitted_tail  = list()
+	permitted_wings = list()
+
+	perks = list(PERK_SUDDENBRILLIANCE, PERK_INSPIRED, PERK_ALIEN_NERVES)
+
+/datum/species/marqua/get_bodytype()
+	return "Mar'Qua"
 
 /datum/species/akula
 	name = "Akula"
@@ -325,7 +366,7 @@
 		"You shiver suddenly.",
 		"Your chilly flesh stands out in goosebumps."
 		)
-	spawn_flags = IS_RESTRICTED
+	spawn_flags = CAN_JOIN
 
 	dark_color = "#0000ff"
 	light_color = "#0000ff"
@@ -343,232 +384,6 @@
 /datum/species/akula/get_bodytype()
 	return "Akula"
 
-/datum/species/naramad
-	name = "Naramad"
-	name_plural = "Naramadi"
-	default_form = FORM_NARAMAD
-	obligate_form = TRUE
-	unarmed_types = list(/datum/unarmed_attack/claws/strong, /datum/unarmed_attack/punch, /datum/unarmed_attack/stomp,  /datum/unarmed_attack/kick, /datum/unarmed_attack/bite/strong, /datum/unarmed_attack/tail)
-	num_alternate_languages = 0
-	name_language = null
-	min_age = 18
-	max_age = 60
-	slowdown = -0.4
-	blurb = "no."
-	darksight = 2
-
-	spawn_flags = IS_RESTRICTED
-
-	stat_modifiers = list(
-		STAT_TGH = 10,
-		STAT_ROB = 10,
-		STAT_VIG = -10,
-		STAT_COG = -10
-	)
-
-	dark_color = "#ffff00"
-	light_color = "#ffff00"
-
-	cold_level_1 = 240 //Default 270
-	cold_level_2 = 200 //Default 230
-	cold_level_3 = 170  //Default 200
-
-	cold_discomfort_level = 240
-	list/cold_discomfort_strings = list(
-		"You feel chilly.",
-		"You shiver suddenly.",
-		"Your chilly flesh stands out in goosebumps."
-		)
-
-	permitted_ears  = list("Naramad Ears", "Sleek Ears")
-	permitted_tail  = list("Naramad Tail", "Naramad Tail 2")
-	permitted_wings = list()
-
-	perks = list(PERK_ADRENALINEBURST, PERK_BORN_WARRIOR, PERK_STAY_HYDRATED)
-
-/datum/species/naramad/get_bodytype()
-	return "Naramad"
-
-/datum/species/vox
-	name = "Opifex"
-	name_plural = "Opifices"
-	aan = "n"
-	default_form = FORM_OPIFEX
-	obligate_form = TRUE
-	reagent_tag = IS_OPIFEX
-	unarmed_types = list(/datum/unarmed_attack/claws, /datum/unarmed_attack/punch, /datum/unarmed_attack/stomp,  /datum/unarmed_attack/kick, /datum/unarmed_attack/bite)
-	num_alternate_languages = 2
-	name_language = null
-	min_age = 18
-	max_age = 80
-	blurb = "no."
-	breath_type = "nitrogen"                        // Non-oxygen gas breathed, if any.
-	poison_type = "oxygen"                        // Poisonous air.
-	exhale_type = "carbon_dioxide"
-	siemens_coefficient = 0.5
-	spawn_flags = IS_RESTRICTED
-	hunger_factor = 0.5
-
-	stat_modifiers = list(STAT_MEC = 10)
-
-	blood_color = "#04419c"
-	dark_color = "#dddddd"
-	light_color = "#dddddd"
-	darksight = 2
-
-	permitted_ears  = list()
-	permitted_tail  = list("Avian Wagtail", "Avian Fantail")
-	permitted_wings = list("Harpy Wings",
-		"Fantail Wings",
-		"Feathered Wings, Small",
-		"Feathered Wings, Medium",
-		"Feathered Wings, Large"
-		)
-
-	cold_level_1 = 270
-	cold_level_2 = 240 //Default 230
-	cold_level_3 = 210  //Default 200
-
-	cold_discomfort_level = 270
-	list/cold_discomfort_strings = list(
-		"You feel chilly.",
-		"You shiver suddenly.",
-		"Your feathers stands out in goosebumps."
-		)
-
-	heat_level_1 = 370 //Default 330
-	heat_level_2 = 410 //Default 380
-	heat_level_3 = 500 //Default 460
-
-	heat_discomfort_level = 370
-	heat_discomfort_strings = list(
-		"Your feathers prickle in the heat.",
-		"You feel uncomfortably warm.",
-		"Your overheated feathers itch."
-		)
-
-	perks = list(PERK_OPIFEX_TURRET, PERK_OPIFEX_PATCHKIT)
-	inherent_verbs = list(/mob/living/carbon/human/proc/leap_opifex, /mob/living/carbon/human/proc/opifex_gut)
-
-/datum/species/vox/equip_survival_gear(mob/living/carbon/human/H)
-	..()
-	H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/opifex(H), slot_wear_mask)
-
-/datum/species/vox/get_bodytype()
-	return "Opifex"
-
-/datum/species/chtmant
-	name = "Cht'mant"
-	name_plural = "Cht'mants"
-	default_form = FORM_CHTMANT
-	obligate_form = TRUE
-	reagent_tag = IS_CHTMANT
-	unarmed_types = list(/datum/unarmed_attack/punch, /datum/unarmed_attack/stomp,  /datum/unarmed_attack/kick, /datum/unarmed_attack/bite)
-	num_alternate_languages = 2
-	name_language = null
-	min_age = 18
-	max_age = 120
-	blurb = "no."
-	flags = NO_PAIN
-	spawn_flags = IS_RESTRICTED
-	taste_sensitivity = TASTE_HYPERSENSITIVE
-	darksight = 4
-
-	brute_mod =     1.25                    // Physical damage multiplier.
-	burn_mod =      0.85                    // Burn damage multiplier.
-	flash_mod =     3
-
-	stat_modifiers = list(
-		STAT_BIO = 5,
-		STAT_COG = 5
-	)
-
-	dark_color = "#5ac18e"
-	light_color = "#5ac18e"
-
-	cold_level_1 = 270 //Default 270
-	cold_level_2 = 240 //Default 230
-	cold_level_3 = 210  //Default 200
-
-	cold_discomfort_level = 270
-	list/cold_discomfort_strings = list(
-		"You feel chilly.",
-		"You shiver suddenly.",
-		"Your exoskeleton stands out in goosebumps."
-		)
-
-	heat_level_1 = 370 //Default 330
-	heat_level_2 = 410 //Default 380
-	heat_level_3 = 500 //Default 460
-
-	heat_discomfort_level = 370
-	heat_discomfort_strings = list(
-		"Your scales prickles in the heat.",
-		"You feel uncomfortably warm.",
-		"Your overheated exosleketon itches."
-		)
-
-	permitted_ears  = list("Bee Antennae",
-		"Citheronia Antennae",
-		"Curly Antennae"
-		)
-	permitted_tail  = list("Bug Abdomen",
-		"Bug Abdomen, Bee Top",
-		"Bug Abdomen, Bee Full",
-		"Bug Abdomen, Underside",
-		"Bug Abdomen, Firefly",
-		"Large Bug Abdomen",
-		"Large Bug Abdomen, Bee Top",
-		"Large Bug Abdomen, Bee Full",
-		"Large Bug Abdomen, Underside",
-		"Large Bug Abdomen, Firefly",
-		"Alternate Bug Abdomen",
-		"Alternate Bug Abdomen, Bee Top",
-		"Alternate Bug Abdomen, Bee Full",
-		"Alternate Bug Abdomen, Underside",
-		"Alternate Bug Abdomen, Firefly",
-		"Alternate Bug Abdomen 2",
-		"Alternate Bug Abdomen 2, Bee Top",
-		"Alternate Bug Abdomen 2, Bee Full",
-		"Alternate Bug Abdomen 2, Underside",
-		"Alternate Bug Abdomen 2, Firefly",
-		"Alternate Large Bug Abdomen",
-		"Alternate Large Bug Abdomen, Bee Top",
-		"Alternate Large Bug Abdomen, Bee Full",
-		"Alternate Large Bug Abdomen, Underside",
-		"Alternate Large Bug Abdomen, Firefly",
-		"Alternate Bug Abdomen 3",
-		"Alternate Bug Abdomen 3, Bee Top",
-		"Alternate Bug Abdomen 3, Bee Full",
-		"Alternate Bug Abdomen 3, Underside",
-		"Alternate Bug Abdomen 3, Firefly"
-		)
-	permitted_wings = list("Bee Wings",
-		"Butterfly Wings",
-		"Dragonfly Wings",
-		"Moth Wings, Burned",
-		"Moth Wings, Citheronia",
-		"Moth Wings, Deathhead",
-		"Moth Wings, Firewatch",
-		"Moth Wings, Gothic",
-		"Moth Wings, Lover",
-		"Moth Wings, Monarch",
-		"Moth Wings, Moonfly",
-		"Moth Wings, Poison",
-		"Moth Wings, Ragged",
-		"Moth Wings, Red",
-		"Moth Wings, Royal",
-		"Moth Wings, Royal Unfluffed",
-		"Moth Wings, Snowy",
-		"Moth Wings, White",
-		"Moth Wings, Worker",
-		"Moth Wings, Plain",
-		"Spider Legs"
-		)
-
-/datum/species/chtmant/get_bodytype()
-	return "Cht'mant"
-
 /datum/species/cindarite
 	name = "Cindarite"
 	name_plural = "Cindarites"
@@ -581,7 +396,7 @@
 	name_language = null
 	min_age = 18
 	max_age = 90
-	spawn_flags = IS_RESTRICTED
+	spawn_flags = CAN_JOIN
 	total_health = 110                   // Burn damage multiplier.
 	radiation_mod = 0
 	darksight = 3
@@ -653,6 +468,98 @@
 
 /datum/species/cindarite/get_bodytype()
 	return "Cindarite"
+
+//Plant People Group - Folken & Mycus
+//Debug form; master type
+/datum/species/plant
+	name = "Plant"
+	name_plural = "Plants"
+	default_form = FORM_FOLKEN
+	obligate_name = TRUE
+	obligate_form = TRUE
+	name_language = null	// Use the first-name last-name generator rather than a language scrambler
+	reagent_tag = IS_TREE
+	min_age = 18
+	max_age = 110
+	num_alternate_languages = 2
+	unarmed_types = list(/datum/unarmed_attack/punch, /datum/unarmed_attack/stomp,  /datum/unarmed_attack/kick, /datum/unarmed_attack/bite)
+	blurb = "N/A"
+	burn_mod = 2						// Burn damage multiplier.
+	slowdown = 0.3
+	hunger_factor = 1.3
+	darksight = 4
+	flags = NO_PAIN
+	taste_sensitivity = TASTE_NUMB
+
+	has_process = list(    // which required-organ checks are conducted.
+		OP_HEART =    /obj/item/organ/internal/heart/plant,
+		OP_STOMACH =  /obj/item/organ/internal/stomach/plant,
+		BP_BRAIN =    /obj/item/organ/internal/brain/plant,
+		OP_EYES =     /obj/item/organ/internal/eyes,
+		OP_LUNGS =    /obj/item/organ/internal/lungs,
+		OP_LIVER =    /obj/item/organ/internal/liver,
+		OP_KIDNEY_LEFT =  /obj/item/organ/internal/kidney/left,
+		OP_KIDNEY_RIGHT = /obj/item/organ/internal/kidney/right,
+		)
+
+	spawn_flags = IS_WHITELISTED		//Makes it so people can't join as debug species.
+
+/datum/species/plant/folken
+	name = "Folken"
+	name_plural = "Folkens"
+	default_form = FORM_FOLKEN
+	breath_type = "nitrogen"			// Non-oxygen gas breathed, if any.
+	poison_type = "plasma"				// Poisonous air.
+	exhale_type = "oxygen"
+	light_dam = 1 // Same threshold as the Nightcrawler perk
+	vision_flags = SEE_SELF
+	flags = NO_PAIN
+
+	dark_color = "#ffffff"
+	light_color = "#000000"
+
+	stat_modifiers = list(
+		STAT_BIO = 10,
+		STAT_COG = 0,
+		STAT_MEC = 0,
+		STAT_ROB = 0,
+		STAT_TGH = 0,
+		STAT_VIG = 10
+	)
+
+	perks = list(PERK_FOLKEN_HEALING)
+
+	spawn_flags = CAN_JOIN
+
+/datum/species/human/get_bodytype()
+	return "Folken"
+
+/datum/species/plant/mycus
+	name = "Mycus"
+	name_plural = "Myci"
+	default_form = FORM_MYCUS
+
+	darksight = 6 // Better than base 4 nightvision due to dark-healing. Shrooms.
+	light_dam = 1 // Same threshold as the Nightcrawler perk
+
+	dark_color = "#ffffff"
+	light_color = "#000000"
+
+	perks = list(PERK_DARK_HEAL)
+
+	stat_modifiers = list(
+		STAT_BIO = 0,
+		STAT_COG = 0,
+		STAT_MEC = 0,
+		STAT_ROB = 20,
+		STAT_TGH = 0,
+		STAT_VIG = 0
+	)
+
+	spawn_flags = CAN_JOIN
+
+/datum/species/human/get_bodytype()
+	return "Mycus"
 
 /datum/species/slime
 	name = SPECIES_SLIME

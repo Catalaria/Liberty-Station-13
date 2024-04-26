@@ -810,6 +810,25 @@
 		if(P && P.regen_rate) // Check if the perk is actually there and got regeneration enabled.
 			heal_overall_damage(P.regen_rate, P.regen_rate, P.regen_rate)
 
+	//TODO, make a light damage component or something to handle this instead
+	if(species.light_dam)//TODO: Use this proc for flora and mycus races. Search proc mycus. -Note for Kaz.
+		var/light_amount = 0
+		if(isturf(loc))
+			var/turf/T = loc
+			light_amount = round((T.get_lumcount()*10)-5)
+
+		if(stats.getPerk(PERK_FOLKEN_HEALING)) // Folken will have this perk
+			if(light_amount >= species.light_dam) // Enough light threshold
+				heal_overall_damage(1,1)
+				adjustNutrition(1)
+
+		else if(stats.getPerk(PERK_DARK_HEAL)) // Is the species a Mycus?
+			if(light_amount <= species.light_dam) // Enough light threshold
+				heal_overall_damage(1,1)
+
+		else if(light_amount > species.light_dam) //if there's enough light, start dying
+			take_overall_damage(1,1)
+
 	// TODO: stomach and bloodstream organ.
 	handle_trace_chems()
 

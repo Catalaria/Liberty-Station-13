@@ -7,7 +7,7 @@
 
 	stat_modifiers = list(STAT_ROB = 6)
 
-	restricted_to_species = list(FORM_SABLEKYNE)
+	restricted_to_species = list(FORM_SABLEKYNE, FORM_BRONZECREST, FORM_IRONCREST, FORM_GOLDENCREST)
 
 /datum/category_item/setup_option/background/ancestry/sablekyne_southlander
 	name = "Southlander"
@@ -18,7 +18,7 @@
 
 	stat_modifiers = list(STAT_ROB = 3, STAT_VIG = 3)
 
-	restricted_to_species = list(FORM_SABLEKYNE)
+	restricted_to_species = list(FORM_SABLEKYNE, FORM_BRONZECREST, FORM_IRONCREST, FORM_GOLDENCREST)
 
 /datum/category_item/setup_option/background/ancestry/sablekyne_maunkyne
 	name = "Maunkyne"
@@ -28,7 +28,7 @@
 			Without it, your body is weak and prone to further addiction but your upbringing in the criminal underworld of Onkarth has left you with a feral cunning and tolerance to most drugs. \
 			Even the most 'noble' maunkyne knows much about medicine, in particular the creation of highly profitable and illegal drugs."
 
-	restricted_to_species = list(FORM_SABLEKYNE)
+	restricted_to_species = list(FORM_SABLEKYNE, FORM_BRONZECREST, FORM_IRONCREST, FORM_GOLDENCREST)
 
 	perks = list(PERK_ADDICT)
 

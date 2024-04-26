@@ -110,7 +110,7 @@
 
 //Kriosan racial language. Lore: German creolization due to Sol-Gov occupation; therefor intelligibility with German.
 /datum/language/kriosan
-	name = LANGUAGE_KRIOSAN
+	name = LANGUAGE_LUPINARIS
 	desc = "The main language of Krios, Kriosan Creole. Mostly consiting of quill-hound noises, posturing and many Eurolang loan words."
 	speech_verb = list("states", "rumbles")
 	ask_verb = list("stipulates", "huffs")
@@ -200,3 +200,15 @@
 	)
 	shorthand = "UT"
 	has_written_form = TRUE
+
+//Plant racial language. Lore: Plant-based language, non-detective to non-plant based people. Higher form of communication.
+/datum/language/plant
+	name = LANGUAGE_PLANT
+	desc = "One of the few intelligent languages of plants, typically known as 'Whisperers' due to the very subtle odd noises that can be heard by those gifted enough to hear it."
+	speech_verb = list("creaks")
+	ask_verb = list("rattles")
+	exclaim_verb = list("crackles")
+	flags = RESTRICTED | HIVEMIND
+	colour = "plant"
+	key = "p"
+	has_written_form = FALSE	// Funny idea could be brail but no, no written language for hiveminds. No purpose.

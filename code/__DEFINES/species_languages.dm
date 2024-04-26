@@ -36,11 +36,12 @@
 #define LANGUAGE_ROBOT 		"Robot Talk"
 #define LANGUAGE_OPIFEXEE 	"Opifexee"
 #define LANGUAGE_CHTMANT 	"Chthive"
-#define LANGUAGE_KRIOSAN 	"Kriosan"
+#define LANGUAGE_LUPINARIS 	"Lupinarin"
 #define LANGUAGE_AKULA		"Akula"
 #define LANGUAGE_MARQUA		"Marqua"
 #define LANGUAGE_CINDERITE	"Cinderite"
 #define LANGUAGE_SYNTHETIC	"Technical Cant"
+#define LANGUAGE_PLANT		"Whisperers' Tongue"
 
 // Special / Antag langauges.
 #define LANGUAGE_MONKEY		"Chimpanzee"

@@ -7,7 +7,7 @@
 			Their simpler lives outside of their mandatory service is focused more farming, growing food, menial labor, and care for each other. \
 			Once their service is finished, it is rare for this group that is so dependant and comfortable around their own to not return home."
 
-	restricted_to_species = list(FORM_NARAMAD)
+	restricted_to_species = list(FORM_NARAMAD, FORM_LHYBRID)
 
 	stat_modifiers = list(STAT_BIO = 4, STAT_MEC = 4)
 
@@ -30,7 +30,7 @@
 			Even among their own kind the eastern naramads are considered Luddites, their brash natures and complete ignorance of things unrelated to combat bar them from science, medical \
 			engineering, command roles, and many more complex jobs within security and prospectors."
 
-	restricted_to_species = list(FORM_NARAMAD)
+	restricted_to_species = list(FORM_NARAMAD, FORM_LHYBRID
 
 	restricted_depts = SCIENCE | MEDICAL | ENGINEERING | COMMAND
 	restricted_jobs = list(/datum/job/salvager, /datum/job/supsec, /datum/job/serg, /datum/job/inspector, /datum/job/medspec, /datum/job/officer)
@@ -44,4 +44,4 @@
 			physically imposing than the rough raised homeworlders. Unfortunately for the space born naramads not even they escape military conscription and often times, due to their relative intelligence, \
 			act as desk workers for akula commanders or in logistical roles for naramadi squads and ships."
 
-	restricted_to_species = list(FORM_NARAMAD)
+	restricted_to_species = list(FORM_NARAMAD, FORM_LHYBRID)

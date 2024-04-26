@@ -6,7 +6,7 @@
 			Unfortunately all that time at the range and tinkering with their rifles hasn't improved much else. \
 			What Jaeger's lack in physical capabilities; they make up for it in rigorous training with their rifles - possessing a near-mechanical reload speed."
 
-	restricted_to_species = list(FORM_KRIOSAN)
+	restricted_to_species = list(FORM_KRIOSAN, FORM_LHYBRID)
 
 	perks = list(PERK_BOLT_REFLECT)
 
@@ -20,7 +20,7 @@
 	While Vorhut are dogmatically stuck in their beliefs that their time may come; and that their fate is predetermined, they have in turn trained hard for that glorious day - the Vorhut possessing \
 	A near-perfect shot."
 
-	restricted_to_species = list(FORM_KRIOSAN)
+	restricted_to_species = list(FORM_KRIOSAN, FORM_LHYBRID)
 
 	perks = list(PERK_PERFECT_SHOT)
 
@@ -31,6 +31,6 @@
             Krios' Trademark rifles. A lifetime of training and a genetic disposition towards politics and leading has made them great at learning new things involving the topics they study; yet abysmal at other pursuits. \
             Due to their large stature; and generally noble demeanour - their very presence can soothe the minds of those around them; assuaging their fears."
 
-	restricted_to_species = list(FORM_KRIOSAN)
+	restricted_to_species = list(FORM_KRIOSAN, FORM_LHYBRID)
 
 	perks = list(PERK_AUTHORITY)

@@ -578,3 +578,109 @@
 /datum/perk/racial/slime_metabolism/better_toxins/remove()
 	holder.toxin_mod_perk += 0.5
 	..()
+
+////////////////////////////// Plant-People Perks
+
+/datum/perk/oddity_reroll
+	name = "Modify Oddity"
+	desc = "You reach into your understanding of this natural world to alter the latent effects of an oddity, enhancing the properties it has."
+	icon_state = "modifyoddity"
+	active = FALSE
+	passivePerk = FALSE
+
+/datum/perk/oddity_reroll/activate()
+	var/mob/living/carbon/human/user = usr
+	var/obj/item/oddity/O = user.get_active_hand()
+	if(!istype(user))
+		return ..()
+	if(world.time < cooldown_time)
+		to_chat(usr, SPAN_NOTICE("The natural forces around you cannot be manipulated just yet."))
+		return FALSE
+	if(!istype(O, /obj/item/oddity))
+		to_chat(usr, SPAN_NOTICE("This isn't the correct kind of oddity!"))
+		return FALSE
+	cooldown_time = world.time + 45 MINUTES
+	user.visible_message("<b><font color='green'>[user] concentrates on the anomaly in their hand, something about it changing in a subtle way.</font><b>", "<b><font color='green'>You focus on the energies around the object, swaying them to your will and enhancing it!</font><b>")
+	log_and_message_admins("used their [src] perk.")
+	if(O.oddity_stats)
+		if(O.random_stats)
+			for(var/stat in O.oddity_stats)
+				O.oddity_stats[stat] = (rand(1, O.oddity_stats[stat]) + 3)
+
+/datum/perk/folken_healing
+	name = "Folken Photo-Healing"
+	desc = "As a Folken, you can use the light to heal wounds, standing in areas of bright light will increase your natural regeneration."
+	icon_state = "folkenphotohealing"
+	passivePerk = TRUE
+
+/datum/perk/dark_heal
+	name = "Mycus Regeneration"
+	desc = "As a mycus, you heal as long as you are in the darkness, increasing your natural regeneration."
+	icon_state = "mycusregeneration"
+	passivePerk = TRUE
+
+/datum/perk/mushroom_follower
+	name = "Spawn Shroomling"
+	desc = "Shroomlings are animal-intelligence mycus capable of following simple orders like 'Shroomling 'Name' Follow.' and 'Shroomling 'Name' Stop.' who will stay by you when ordered. While capable of fighting, they are quite weak, the \
+	major benefit of having one is they may turn any food you feed into them into useful healing chemicals contained in bottles of resin."
+	icon_state = "spawnshroomling"
+	active = FALSE
+	passivePerk = FALSE
+	var/used = FALSE // Not deleting after use since the description is useful.
+	var/follower_type = /mob/living/carbon/superior_animal/fungi/shroom
+
+/datum/perk/mushroom_follower/activate()
+	var/mob/living/carbon/human/user = usr
+	if(!istype(user))
+		return ..()
+	if(used)
+		to_chat(user, SPAN_NOTICE("You've already created your companion, you didn't lose them did you?"))
+		return FALSE
+	used = TRUE
+	to_chat(usr, SPAN_NOTICE("You grow a follower!"))
+	var/mob/living/carbon/superior_animal/fungi/mushroom = new follower_type(user.loc)
+	mushroom.friends += user
+	mushroom.following = user
+	mushroom.last_followed = user
+	..()
+
+/datum/perk/slime_follower
+	name = "Spawn Slime-Mold"
+	desc = "Slime-mold shroomlings are animal-intelligence mycus capable of following simple orders like 'Slime-Mold 'Name' Follow.' and 'Slimd-Mold 'Name' Stop.' who will stay by you when ordered. Slime-molds are made for combat, being \
+	incredibly sturdy and physically strong, able to regenerate even the worst wounds. Unfortunately they suffer from poor eyesight, requiring threats to get close before they notice them."
+	icon_state = "spawnslimemold"
+	active = FALSE
+	passivePerk = FALSE
+	var/used = FALSE // Not deleting after use since the description is useful.
+	var/follower_type = /mob/living/carbon/superior_animal/fungi/slime
+
+/datum/perk/slime_follower/activate()
+	var/mob/living/carbon/human/user = usr
+
+	if(!istype(user))
+		return ..()
+	if(used)
+		to_chat(user, SPAN_NOTICE("You've already created your companion, you didn't lose them did you?"))
+		return FALSE
+	used = TRUE
+	to_chat(usr, SPAN_NOTICE("You grow a follower!"))
+	var/mob/living/carbon/superior_animal/fungi/mushroom = new follower_type(user.loc)
+	mushroom.friends += user
+	mushroom.following = user
+	mushroom.last_followed = user
+	..()
+
+// Food related perks
+/datum/perk/carnivore
+	name = "Carnivore"
+	desc = "For whatever reason, be it genetics or racial inclination, you are an obligate carnivore. You get very little nutrition from standard nutriment, but gain alot from meat and protein \
+	based products."
+	icon_state = "carnivore"
+	passivePerk = TRUE
+
+/datum/perk/herbivore
+	name = "Herbivore"
+	desc = "For whatever reason, be it genetics or racial inclination, you are an obligate herbivore. You get very little nutrition from standard protein, but gain alot from grown foods and glucose \
+	based products."
+	icon_state = "herbivore"
+	passivePerk = TRUE

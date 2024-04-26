@@ -155,6 +155,15 @@
 #define PERK_OPIFEX_TURRET /datum/perk/racial/opifex_turret
 #define PERK_OPIFEX_PATCHKIT /datum/perk/racial/opifex_patchkit
 
+//Mycus
+#define PERK_DARK_HEAL /datum/perk/dark_heal
+#define PERK_MUSH_FOLLOWER /datum/perk/mushroom_follower
+#define PERK_SLIME_FOLLOWER /datum/perk/slime_follower
+
+//Folken
+#define PERK_FOLKEN_HEALING /datum/perk/folken_healing
+#define PERK_ODD_REROLL /datum/perk/oddity_reroll
+
 //Slime
 #define PERK_LIMB_REGEN /datum/perk/racial/limb_regen
 #define PERK_SLIMEBODY /datum/perk/racial/slime_metabolism
